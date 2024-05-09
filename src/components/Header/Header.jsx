@@ -1,6 +1,7 @@
 import logo from '../../assets/logo/BrainFlix-logo.svg';
-import searchIcon from '../../assets/images/search.svg';
-import uploadIcon from '../../assets/images/upload.svg';
+import searchIcon from '../../assets/icons/search.svg';
+import uploadIcon from '../../assets/icons/upload.svg';
+import './Header.scss';
 
 const Header = () => {
     return (
@@ -24,3 +25,5 @@ const Header = () => {
         </header>
     )
 }
+
+export default Header;
