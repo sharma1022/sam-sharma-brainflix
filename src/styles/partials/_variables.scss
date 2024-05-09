@@ -1,0 +1,23 @@
+@use './font.scss' as *;
+
+$primary-font: "AvenirNext", "Verdana", "Sans-serif";
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+$primary-txt: #323232;
+$secondary-txt: #AFAFAF;
+
+$primary-bg: #FFFFFF;
+$form-bg: #fafafa;
+
+$primary-cta-bg: #0095FF;
+$cta-hover: #0065AD;
+$cta-txt: #FFFFFF;
+
+$divider-line: #E1E1E1;
+$form-outline: #E1E1E1;
+$form-outline-active: #0095FF;
+$video-components: #000000;
+
+
