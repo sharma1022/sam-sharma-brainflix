@@ -1,4 +1,4 @@
-@use "./styles/partials/variables" as variable;
+@use "./styles/partials/variables" as variables;
 *{
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +6,6 @@
 }
 
 body{
-  font-family: variable.$primary-font;
-  color: variable.$primary-txt;
+  font-family: variables.$primary-font;
+  color: variables.$primary-txt;
 }
