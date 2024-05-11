@@ -1,5 +1,7 @@
 @use '../../styles/partials/variables';
 @use '../../styles/partials/mixins' as style;
+@use '../../styles/partials/media-queries' as mediaQuery;
+
 .primary-nav{
     @include style.section-padding("mobile");
     display: flex;
@@ -69,14 +71,56 @@
         &:hover{
             background-color: variables.$cta-hover;
         }
+        &--tablet{
+            display: none;
+        }
     }
 
     &__upload-icon{
-        height: 1.25rem;
+        width: 1.25rem;
         &--hidden {
             visibility: hidden;
-            height: 1.25rem;
+            width: 1.25rem;
         }
     }
     
+}
+
+@include mediaQuery.tablet{
+    .primary-nav{
+        @include style.section-padding("tablet");
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1rem 0rem;
+        &__logo{
+            &-link{
+                margin: 0;
+            }
+        }
+        &__container{
+            flex-direction: row;
+            justify-content: flex-end;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+        }
+        &__button{
+            @include style.button-text(large);
+            display: none;
+
+            &--tablet{
+                display: flex;
+                width: 9.375rem;
+            }
+        }
+        &__search{
+            flex: none;
+            width: 15rem;
+            height: 2.5rem;
+        }
+        &__avatar{
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+
+    }
 }

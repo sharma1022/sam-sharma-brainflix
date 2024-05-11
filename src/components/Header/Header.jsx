@@ -15,6 +15,11 @@ const Header = () => {
                         <img className='primary-nav__search-icon' src={searchIcon} alt="Search Icon" />
                         <input className='primary-nav__search-input' type="text" placeholder='Search' name='search'/>
                     </div>
+                    <a className='primary-nav__button primary-nav__button--tablet' href="#">
+                        <img className='primary-nav__upload-icon' src={uploadIcon} alt="Upload Icon" />
+                        Upload
+                        <div className='primary-nav__upload-icon--hidden'></div>
+                    </a>
                     <div className='primary-nav__avatar'></div>
                     <a className='primary-nav__button' href="#">
                         <img className='primary-nav__upload-icon' src={uploadIcon} alt="Upload Icon" />
