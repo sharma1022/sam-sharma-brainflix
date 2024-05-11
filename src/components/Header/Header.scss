@@ -124,3 +124,11 @@
 
     }
 }
+
+@include mediaQuery.desktop{
+    .primary-nav{
+        @include style.section-padding("desktop");
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
