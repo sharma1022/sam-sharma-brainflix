@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className="header">
             <nav className="primary-nav">
-                <a href="#">
+                <a className='primary-nav__logo-link' href="#">
                     <img className="primary-nav__logo" src={logo} alt="Brainflix Logo" />
                 </a>
                 <div className='primary-nav__container'>
@@ -19,6 +19,7 @@ const Header = () => {
                     <a className='primary-nav__button' href="#">
                         <img className='primary-nav__upload-icon' src={uploadIcon} alt="Upload Icon" />
                         Upload
+                        <div className='primary-nav__upload-icon--hidden'></div>
                     </a>
                 </div>
             </nav>
