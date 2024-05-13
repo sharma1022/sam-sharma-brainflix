@@ -33,7 +33,9 @@
         align-items: center;
         padding: 0.5rem;
         flex: 1;
-        
+        justify-content: space-between;
+        gap: 0.5rem;
+        height: 100%;
         
         &:focus-within {
             border-color: variables.$form-bg;
@@ -41,6 +43,9 @@
         }
         &-input{
             border: none;
+            @include style.body-copy(small);
+            flex: 1;
+
             &:focus {
                 outline: none;
             }
@@ -116,6 +121,10 @@
             flex: none;
             width: 15rem;
             height: 2.5rem;
+
+            &-input{
+                @include style.body-copy(large);
+            }
         }
         &__avatar{
             height: 2.5rem;
