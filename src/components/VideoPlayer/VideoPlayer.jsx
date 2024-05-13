@@ -2,11 +2,14 @@ import "./VideoPlayer.scss";
 
 const VideoPlayer = (props) => {
   return (
-    <video
-      className="video-player"
-      poster={props.selectedVideo.image}
-      controls
-    ></video>
+    <div className="video">
+      <video
+        className="video__player"
+        poster={props.selectedVideo.image}
+        controls
+        width="80%"
+      ></video>
+    </div>
   );
 };
 export default VideoPlayer;
