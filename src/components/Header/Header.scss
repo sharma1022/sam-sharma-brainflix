@@ -1,143 +1,141 @@
-@use '../../styles/partials/variables';
-@use '../../styles/partials/mixins' as style;
-@use '../../styles/partials/media-queries' as mediaQuery;
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins" as style;
+@use "../../styles/partials/media-queries" as mediaQuery;
 
-.primary-nav{
-    @include style.section-padding("mobile");
+.primary-nav {
+  @include style.section-padding("mobile");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: variables.$primary-bg;
+
+  &__logo {
+    max-width: 7.5rem;
+    max-height: 1.563rem;
+
+    &-link {
+      max-width: 7.5rem;
+      max-height: 1.563rem;
+      margin: 1rem 0;
+    }
+  }
+  &__container {
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__search {
+    border: 0.063rem solid variables.$form-outline;
+    border-radius: 0.25rem;
+    display: flex;
     align-items: center;
-    background-color: variables.$primary-bg;
+    padding: 0.5rem;
+    flex: 1;
+    justify-content: space-between;
+    gap: 0.5rem;
+    height: 100%;
 
-    &__logo{
-        max-width: 7.5rem;
-        max-height: 1.563rem;
+    &:focus-within {
+      border-color: variables.$form-bg;
+      outline: 0.125rem solid variables.$form-outline-active;
+    }
+    &-input {
+      border: none;
+      @include style.body-copy(small);
+      flex: 1;
 
-        &-link{
-            max-width: 7.5rem;
-        max-height: 1.563rem;
-        margin: 1rem 0;
-        }
+      &:focus {
+        outline: none;
+      }
     }
-    &__container{
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
+  }
+  &__avatar {
+    background-image: url("../../assets/images/Mohan-muruge.jpg");
+    background-size: cover;
+    background-position: center left;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+  }
+  &__button {
+    @include style.button-text(small);
+    background-color: variables.$primary-cta-bg;
+    border-radius: 0.25rem;
+    color: variables.$cta-txt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
 
-    &__search{
-        border: 0.063rem solid variables.$form-outline;
-        border-radius: 0.25rem;
-        display: flex;
-        align-items: center;
-        padding: 0.5rem;
-        flex: 1;
-        justify-content: space-between;
-        gap: 0.5rem;
-        height: 100%;
-        
-        &:focus-within {
-            border-color: variables.$form-bg;
-            outline: 0.125rem solid variables.$form-outline-active;
-        }
-        &-input{
-            border: none;
-            @include style.body-copy(small);
-            flex: 1;
+    &:hover {
+      background-color: variables.$cta-hover;
+    }
+    &--tablet {
+      display: none;
+    }
+  }
 
-            &:focus {
-                outline: none;
-            }
-        }
+  &__upload-icon {
+    width: 1.25rem;
+    &--hidden {
+      visibility: hidden;
+      width: 1.25rem;
     }
-    &__avatar{
-        background-image: url('../../assets/images/Mohan-muruge.jpg');
-        background-size: cover;
-        background-position: center left;
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
-    }
-    &__button{
-        @include style.button-text(small);
-        background-color: variables.$primary-cta-bg;
-        border-radius: 0.25rem;
-        color: variables.$cta-txt;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-transform: uppercase;
-        width: 100%;
-        height: 2.5rem;
-        padding:0.5rem;
-        text-decoration: none;
-
-        &:hover{
-            background-color: variables.$cta-hover;
-        }
-        &--tablet{
-            display: none;
-        }
-    }
-
-    &__upload-icon{
-        width: 1.25rem;
-        &--hidden {
-            visibility: hidden;
-            width: 1.25rem;
-        }
-    }
-    
+  }
 }
 
-@include mediaQuery.tablet{
-    .primary-nav{
-        @include style.section-padding("tablet");
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 1rem 0rem;
-        &__logo{
-            &-link{
-                margin: 0;
-            }
-        }
-        &__container{
-            flex-direction: row;
-            justify-content: flex-end;
-            flex-wrap: nowrap;
-            gap: 1.5rem;
-        }
-        &__button{
-            @include style.button-text(large);
-            display: none;
-
-            &--tablet{
-                display: flex;
-                width: 9.375rem;
-            }
-        }
-        &__search{
-            flex: none;
-            width: 15rem;
-            height: 2.5rem;
-
-            &-input{
-                @include style.body-copy(large);
-            }
-        }
-        &__avatar{
-            height: 2.5rem;
-            width: 2.5rem;
-        }
-
+@include mediaQuery.tablet {
+  .primary-nav {
+    @include style.section-padding("tablet");
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0rem;
+    &__logo {
+      &-link {
+        margin: 0;
+      }
     }
+    &__container {
+      flex-direction: row;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+    }
+    &__button {
+      @include style.button-text(large);
+      display: none;
+
+      &--tablet {
+        display: flex;
+        width: 9.375rem;
+      }
+    }
+    &__search {
+      flex: none;
+      width: 15rem;
+      height: 2.5rem;
+
+      &-input {
+        @include style.body-copy(large);
+      }
+    }
+    &__avatar {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
 }
 
-@include mediaQuery.desktop{
-    .primary-nav{
-        @include style.section-padding("desktop");
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+@include mediaQuery.desktop {
+  .primary-nav {
+    @include style.section-padding("desktop");
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
