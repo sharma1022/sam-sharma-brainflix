@@ -1,3 +1,5 @@
+import "./VideoPlayer.scss";
+
 const VideoPlayer = (props) => {
   return (
     <video
