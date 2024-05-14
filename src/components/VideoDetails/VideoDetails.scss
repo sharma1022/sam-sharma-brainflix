@@ -1,6 +1,6 @@
 @use '../../styles/partials/mixins' as style;
 @use '../../styles/partials/variables';
-
+@use '../../styles/partials/media-queries' as mediaQuery;
 .video-details{
     display: flex;
     flex-direction: column;
@@ -54,5 +54,36 @@
     &__description{
         padding: 1rem 0;
         @include style.body-copy(small);
+    }
+}
+
+@include mediaQuery.tablet{
+    .video-details{
+        @include style.section-padding("tablet");
+        &__heading{
+            @include style.page-header(large);
+            @include style.header-padding(large);
+            padding-bottom: 0;
+        }
+        &__container{
+            border-top: 0;
+            @include style.body-copy(large);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        &__info{
+            flex-direction: row;
+            gap: 1.5rem;
+        }
+        &__channel{
+            @include style.section-header(large);
+        }
+        &__numbers{
+            flex-direction: row;
+            gap: 1.5rem;
+        }
+        &__description{
+            @include style.body-copy(large);
+        }
     }
 }
