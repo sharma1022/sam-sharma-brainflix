@@ -1,0 +1,19 @@
+@use '../../styles/partials/mixins' as style;
+@use '../../styles/partials/variables';
+
+.video-details{
+    display: flex;
+    flex-direction: column;
+    @include style.section-padding("mobile");
+    color: variables.$primary-txt;
+
+    &__heading{
+        @include style.page-header(small);
+    }
+
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        @include style.section-header(small);
+    }
+}

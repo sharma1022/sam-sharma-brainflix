@@ -1,6 +1,6 @@
 import viewsIcon from '../../assets/icons/views.svg';
 import likeIcon from '../../assets/icons/likes.svg';
-
+import "./VideoDetails.scss";
 const VideoDetails = props => {
     return(
         <section className="video-details">
