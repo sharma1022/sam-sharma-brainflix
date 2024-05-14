@@ -9,11 +9,50 @@
 
     &__heading{
         @include style.page-header(small);
+        @include style.header-padding(small);
     }
 
     &__container{
         display: flex;
         justify-content: space-between;
+        border-top: 0.0625rem solid variables.$divider-line;
+        border-bottom: 0.0625rem solid variables.$divider-line;
+        @include style.body-copy(small);
+        color: variables.$secondary-txt;
+        padding: 1rem 0;
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        
+    }
+    &__channel{
+        color: variables.$primary-txt;
         @include style.section-header(small);
+        font-weight: 600;
+        
+    }
+    &__date{
+    }
+    &__numbers{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    &__views{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    &__likes{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    &__description{
+        padding: 1rem 0;
+        @include style.body-copy(small);
     }
 }
