@@ -2,6 +2,7 @@ import logo from "../../assets/logo/BrainFlix-logo.svg";
 import searchIcon from "../../assets/icons/search.svg";
 import uploadIcon from "../../assets/icons/upload.svg";
 import "./Header.scss";
+import Button from "../Button/Button";
 
 const Header = () => {
   return (
@@ -24,28 +25,9 @@ const Header = () => {
               name="search"
             />
           </div>
-          <a
-            className="primary-nav__button primary-nav__button--tablet"
-            href="#"
-          >
-            <img
-              className="primary-nav__upload-icon"
-              src={uploadIcon}
-              alt="Upload Icon"
-            />
-            Upload
-            <div className="primary-nav__upload-icon--hidden"></div>
-          </a>
+          <Button className="button--upload button--tablet" text="Upload"/>
           <div className="primary-nav__avatar"></div>
-          <a className="primary-nav__button" href="#">
-            <img
-              className="primary-nav__upload-icon"
-              src={uploadIcon}
-              alt="Upload Icon"
-            />
-            Upload
-            <div className="primary-nav__upload-icon--hidden"></div>
-          </a>
+          <Button className="button--upload" text="Upload"/>
         </div>
       </nav>
     </header>
