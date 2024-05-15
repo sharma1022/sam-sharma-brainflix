@@ -1,5 +1,7 @@
 import mohanImg from '../../assets/images/Mohan-muruge.jpg';
 import './CommentSection.scss';
+import Button from '../Button/Button';
+
 const CommentSection = ({ selectedVidComments }) => {
 
     return (
@@ -12,7 +14,7 @@ const CommentSection = ({ selectedVidComments }) => {
                         <label className='comments__label' htmlFor="comment">Join the Conversation</label>
                         <textarea className='comments__input' name="comment" id="comment" placeholder='Add a new comment'></textarea>
                     </div>
-                    <button>Comment</button>
+                    <Button className="button--comment" text="Comment"/>
                 </form>
             </div>
         </section>
