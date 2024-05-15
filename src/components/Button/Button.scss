@@ -30,3 +30,18 @@
         display: none;
     }
 }
+
+@include mediaQuery.tablet{
+    .button {
+        @include style.button-text(large);
+        display: none;
+        
+        &--comment{
+            display: block;
+        }
+        &--tablet {
+          display: block;
+          width: 9.375rem;
+        }
+      }
+}
