@@ -46,7 +46,7 @@
     }
   }
 
-  @mixin label-text($size) {
+  @mixin label-txt($size) {
     @if $size == "small" {
       font-size: 0.625rem;
       line-height: 1.25rem;

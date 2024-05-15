@@ -1,0 +1,63 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins' as style;
+@use '../../styles/partials/media-queries' as mediaQuery;
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    @include style.section-padding("mobile");
+    color: variables.$primary-txt;
+    
+
+    &__count{
+        @include style.sub-header(small);
+    }
+
+    &__top{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.063rem solid variables.$divider-line;
+    }
+    &__avatar{
+        background-image: url("../../assets/images/Mohan-muruge.jpg");
+        background-size: cover;
+        background-position: center left;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        margin-top: 1rem;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &-container{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+        }
+    }
+    &__label{
+        text-transform: uppercase;
+        @include style.label-txt(small);
+        color: variables.$secondary-txt;
+    }
+    &__input{
+        background-color: variables.$form-bg;
+        border-radius: 0.313rem;
+        padding: 0.5rem;
+        border: 0.063rem solid variables.$form-outline;
+        resize: none;
+        height: 6rem;
+        &::placeholder{
+            @include style.body-copy(small);
+            color: variables.$primary-txt;
+            font-family: "AvenirNext", "Verdana", "Sans-serif";
+        }
+        
+    }
+}
