@@ -7,7 +7,7 @@
     flex-direction: row;
     padding: 1rem 0;
     border-bottom: 0.0625rem solid variables.$divider-line;
-    gap: 0.5rem;
+    gap: 1rem;
     color: variables.$primary-txt;
     
     &__avatar{
@@ -39,4 +39,19 @@
     &__txt{
         @include style.body-copy(small);
     }
+}
+
+@include mediaQuery.tablet{
+    .comment{
+
+    &__name{
+        @include style.sub-header(large);
+    }
+    &__date{
+        @include style.body-copy(large);
+    }
+    &__txt{
+        @include style.body-copy(large);
+    }
+}
 }
