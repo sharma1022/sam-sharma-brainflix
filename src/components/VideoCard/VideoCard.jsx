@@ -1,0 +1,1 @@
+const VideoCard = ({videos})

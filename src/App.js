@@ -5,9 +5,11 @@ import VideoPlayer from './components/VideoPlayer/VideoPlayer.jsx';
 import videoDetails from './data/video-details.json';
 import VideoDetails from './components/VideoDetails/VideoDetails.jsx';
 import CommentSection from './components/CommentSection/CommentSection.jsx';
+import videoList from './data/videos.json';
 
 function App() {
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
+  const [videos, setVideos] = useState(videoList);
 
   return (
     <div className="App">
