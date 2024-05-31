@@ -18,7 +18,7 @@ function App() {
       <VideoPlayer selectedVideo={selectedVideo}/>
       <VideoDetails selectedVideo={selectedVideo} />
       <CommentSection selectedVidComments={selectedVideo.comments}/>
-      <NextVideos videos={videos} />
+      <NextVideos videos={videos} selectedVideo={selectedVideo}/>
     </div>
   );
 }
