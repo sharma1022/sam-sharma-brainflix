@@ -32,3 +32,14 @@
         @include style.body-copy(small);
     }
 }
+
+@include mediaQuery.tablet{
+    .next-videos{
+        &__title{
+            @include style.sub-header(large);
+        }
+        &__channel{
+            @include style.body-copy(large);
+        }
+    }
+}
