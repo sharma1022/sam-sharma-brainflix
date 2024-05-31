@@ -1,3 +1,5 @@
+import './VideoCard.scss';
+
 const VideoCard = ({video}) => {
     return (
         <li className="next-videos__item">

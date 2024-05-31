@@ -1,0 +1,34 @@
+@use "../../styles/partials/media-queries" as mediaQuery;
+@use "../../styles/partials/mixins" as style;
+@use "../../styles/partials/variables";
+
+.next-videos{
+    &__item{
+        display: flex;
+        width:100%;
+        gap: 1rem;
+    }
+    &__img-container{
+        border-radius: 0.25rem;
+        background-color: variables.$divider-line;
+        display: flex;
+        justify-content: center;
+    }
+    &__img{
+        width:  6.5rem;
+        border-radius: 0.25rem;
+    }
+    &__details{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: variables.$primary-txt;
+        
+    }
+    &__title{
+        @include style.sub-header(small);
+    }
+    &__channel{
+        @include style.body-copy(small);
+    }
+}
