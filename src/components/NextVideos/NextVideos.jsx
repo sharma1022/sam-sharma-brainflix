@@ -1,7 +1,7 @@
 import "./NextVideos.scss";
 import VideoCard from "../VideoCard/VideoCard";
 
-const NextVideos = ({ videos, selectedVideo }) => {
+const NextVideos = ({ videos, selectedVideo, handleVideoClick }) => {
   return (
     <section className="next-videos">
       <h3 className="next-videos__header">Next Videos</h3>
@@ -9,7 +9,13 @@ const NextVideos = ({ videos, selectedVideo }) => {
         {videos
           .filter((video) => video.id !== selectedVideo.id)
           .map((video) => {
-            return <VideoCard video={video} key={video.id} />;
+            return (
+              <VideoCard
+                video={video}
+                key={video.id}
+                onClick={() => handleVideoClick(video.id)}
+              />
+            );
           })}
       </ul>
     </section>

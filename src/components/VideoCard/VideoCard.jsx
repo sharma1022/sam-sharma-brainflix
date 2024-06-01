@@ -1,8 +1,9 @@
 import './VideoCard.scss';
 
 const VideoCard = ({video}) => {
+    
     return (
-        <li className="next-videos__item">
+        <li className="next-videos__item" >
         <div className="next-videos__img-container">
             <img className="next-videos__img" src={video.image} alt={`${video.title} video.`} />
         </div>
