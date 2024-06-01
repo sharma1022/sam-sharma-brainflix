@@ -1,0 +1,25 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins' as style;
+@use '../../styles/partials/media-queries' as mediaQuery;
+
+.next-videos{
+    @include style.section-padding("mobile");
+
+    &__header{
+        text-transform: uppercase;
+        @include style.label-txt(small);
+        color: variables.$secondary-txt;
+        padding: 1rem 0;
+    }
+}
+
+@include mediaQuery.tablet{
+    .next-videos{
+        @include style.section-padding("tablet");
+
+        &__header{
+            @include style.label-txt(large);
+            padding: 1.5rem 0;
+        }
+    }
+}
