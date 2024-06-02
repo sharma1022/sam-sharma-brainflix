@@ -12,10 +12,10 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
   const [videos, setVideos] = useState(videoList);
 
-  const handleVideoClick = (videoId) => {
-    const clickedVid = videos.find((video) => video.id === videoId);
-    setSelectedVideo(clickedVid);
-  };
+  const handleVideoClick = (id) => {
+    const clickedVideo = videos.find((video) => video.id === id);
+    setSelectedVideo(clickedVideo);
+};
 
   return (
     <div className="App">
@@ -24,7 +24,6 @@ function App() {
       <VideoDetails selectedVideo={selectedVideo} />
       <CommentSection selectedVideo={selectedVideo} />
       <NextVideos
-        videos={videos}
         selectedVideo={selectedVideo}
         handleVideoClick={handleVideoClick}
       />

@@ -2,10 +2,11 @@ import "./CommentSection.scss";
 import Button from "../Button/Button";
 import Comment from "../Comment/Comment";
 const CommentSection = ({ selectedVideo }) => {
-  const selectedVidComments = selectedVideo.comments;
+const commentCount = selectedVideo.comments.length;;
+const comments = selectedVideo.comments;
   return (
     <section className="comments">
-      <p className="comments__count">{selectedVidComments.length} Comments</p>
+      <p className="comments__count">{`${commentCount} Comments`}</p>
       <div className="comments__top">
         <div className="comments__avatar"></div>
         <form className="comments__form">
@@ -25,7 +26,7 @@ const CommentSection = ({ selectedVideo }) => {
       </div>
       <div className="comments__bottom">
         <ul className="comments__list">
-          {selectedVidComments.map((comment) => {
+          {comments.map((comment) => {
             return (
               <Comment
                 key={comment.id}

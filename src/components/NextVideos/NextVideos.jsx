@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./NextVideos.scss";
 import VideoCard from "../VideoCard/VideoCard";
+import videoList from "../../data/videos.json";
+const NextVideos = ({ selectedVideo, handleVideoClick }) => {
+  const [videos] = useState(videoList);
 
-const NextVideos = ({ videos, selectedVideo, handleVideoClick }) => {
   return (
     <section className="next-videos">
       <h3 className="next-videos__header">Next Videos</h3>
@@ -11,9 +14,12 @@ const NextVideos = ({ videos, selectedVideo, handleVideoClick }) => {
           .map((video) => {
             return (
               <VideoCard
-                video={video}
                 key={video.id}
-                onClick={() => handleVideoClick(video.id)}
+                id={video.id}
+                channel={video.channel}
+                image={video.image}
+                title={video.title}
+                handleVideoClick={handleVideoClick}
               />
             );
           })}
