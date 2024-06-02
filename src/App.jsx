@@ -15,18 +15,24 @@ function App() {
   const handleVideoClick = (id) => {
     const clickedVideo = videos.find((video) => video.id === id);
     setSelectedVideo(clickedVideo);
-};
+  };
 
   return (
     <div className="App">
       <Header />
-      <VideoPlayer selectedVideo={selectedVideo} />
-      <VideoDetails selectedVideo={selectedVideo} />
-      <CommentSection selectedVideo={selectedVideo} />
-      <NextVideos
-        selectedVideo={selectedVideo}
-        handleVideoClick={handleVideoClick}
-      />
+      <main>
+        <VideoPlayer selectedVideo={selectedVideo} />
+        <section className="page-content">
+          <div className="page-content__selected-vid">
+            <VideoDetails selectedVideo={selectedVideo} />
+            <CommentSection selectedVideo={selectedVideo} />
+          </div>
+          <NextVideos
+            selectedVideo={selectedVideo}
+            handleVideoClick={handleVideoClick}
+          />
+        </section>
+      </main>
     </div>
   );
 }

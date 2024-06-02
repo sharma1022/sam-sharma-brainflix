@@ -1,4 +1,6 @@
 @use "./styles/partials/variables" as variables;
+@use "./styles/partials/media-queries" as mediaQuery;
+@use './styles/partials/mixins' as style;
 *{
   box-sizing: border-box;
   margin: 0;
@@ -8,4 +10,20 @@
 body{
   font-family: variables.$primary-font;
   color: variables.$primary-txt;
+}
+
+.page-content{
+  display: flex;
+  flex-direction: column;
+
+}
+
+@include mediaQuery.desktop{
+  .page-content{
+    flex-direction: row;
+    @include style.section-padding("desktop");
+    &__selected-vid{
+      border-right: 0.0625rem solid variables.$divider-line;
+    }
+  }
 }
