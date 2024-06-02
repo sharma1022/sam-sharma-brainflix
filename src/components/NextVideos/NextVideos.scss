@@ -19,7 +19,16 @@
 
         &__header{
             @include style.label-txt(large);
-            padding: 1.5rem 0;
+            padding: 1.5rem 0 0 0;
+        }
+    }
+}
+
+@include mediaQuery.desktop{
+    .next-videos{
+        padding: 0 0 0 1rem;
+        &__header{
+            padding-bottom: 0;
         }
     }
 }

@@ -8,7 +8,7 @@
         width:100%;
         gap: 1rem;
         margin-top: 0.75rem;
-        //cursor: pointer;
+        cursor: pointer;
     }
     &__img-container{
         border-radius: 0.25rem;
@@ -45,6 +45,17 @@
         }
         &__channel{
             @include style.body-copy(large);
+        }
+        &__img{
+            width: 7rem;
+            height: 4.092rem;
+        }
+    }
+}
+@include mediaQuery.desktop{
+    .next-videos{
+        &__item{
+            margin-top: 1rem;
         }
     }
 }

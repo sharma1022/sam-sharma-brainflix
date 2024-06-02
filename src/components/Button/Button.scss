@@ -38,10 +38,16 @@
         
         &--comment{
             display: block;
+            width: 9.375rem;
+            
         }
         &--tablet {
           display: block;
           width: 9.375rem;
         }
       }
+}
+
+@include mediaQuery.desktop{
+
 }

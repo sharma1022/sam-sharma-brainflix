@@ -15,7 +15,6 @@ body{
 .page-content{
   display: flex;
   flex-direction: column;
-
 }
 
 @include mediaQuery.desktop{
@@ -24,6 +23,8 @@ body{
     @include style.section-padding("desktop");
     &__selected-vid{
       border-right: 0.0625rem solid variables.$divider-line;
+      width: 80%;
+      
     }
   }
 }

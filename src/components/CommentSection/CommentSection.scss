@@ -34,6 +34,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        flex-wrap: wrap;
 
         &-container{
             display: flex;
@@ -59,5 +60,51 @@
             font-family: "AvenirNext", "Verdana", "Sans-serif";
         }
         
+    }
+}
+@include mediaQuery.tablet{
+    .comments{
+        @include style.section-padding("tablet");s
+        &__count{
+            @include style.sub-header(large);
+        }
+        &__top{
+            gap: 1rem;
+            align-items: flex-end;
+            flex-direction: row;
+            width: 100%;
+            padding: 1rem 0;
+        }
+        &__form{
+            flex-direction: row;
+            align-items: flex-end;
+            gap: 1rem;
+            &-container{
+                flex: 1;
+                margin: 0;
+            }
+        }
+        &__label{
+            @include style.label-txt(large);
+            
+        }
+        &__input{
+            width: 100%;
+            padding: 0.25rem;
+            height: 2.5rem;
+            &::placeholder{
+                @include style.body-copy(large);
+            }
+        }
+    }
+}
+
+@include mediaQuery.desktop{
+    .comments{
+        padding: 0;
+        &__top{
+            padding-right: 1rem;
+            gap: 1.5rem;
+        }
     }
 }

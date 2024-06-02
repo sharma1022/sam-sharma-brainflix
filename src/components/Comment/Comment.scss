@@ -43,7 +43,6 @@
 
 @include mediaQuery.tablet{
     .comment{
-
     &__name{
         @include style.sub-header(large);
     }
@@ -54,4 +53,11 @@
         @include style.body-copy(large);
     }
 }
+}
+
+@include mediaQuery.desktop{
+    .comment{
+        padding-right: 1rem;
+        gap: 1.5rem;
+    }
 }
