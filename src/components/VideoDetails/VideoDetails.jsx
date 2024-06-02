@@ -1,8 +1,9 @@
 import viewsIcon from '../../assets/icons/views.svg';
 import likeIcon from '../../assets/icons/likes.svg';
 import "./VideoDetails.scss";
+import timeSince from '../../utils/timeSince';
 const VideoDetails = ({ selectedVideo }) => {
-    const date = (new Date(selectedVideo.timestamp)).toLocaleString();
+    const date = timeSince(new Date(selectedVideo.timestamp));
     return(
         <section className="video-details">
             <h1 className="video-details__heading">{selectedVideo.title}</h1>

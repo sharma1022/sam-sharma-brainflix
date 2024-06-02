@@ -1,7 +1,8 @@
 import './Comment.scss';
+import timeSince from '../../utils/timeSince';
 
 const Comment = ({name, timestamp, comment}) => {
-    const date = (new Date(timestamp)).toLocaleString();
+    const date = timeSince(new Date(timestamp));
     return(
         <li className="comment">
             <div className="comment__avatar"></div>
