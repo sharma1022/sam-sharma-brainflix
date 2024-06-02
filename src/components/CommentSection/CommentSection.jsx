@@ -7,7 +7,7 @@ const commentCount = selectedVideo.comments.length;
 const comments = selectedVideo.comments;
   return (
     <section className="comments">
-      <p className="comments__count">{`${commentCount} Comments`}</p>
+      <p className="comments__count">{`${commentCount} ${commentCount > 1 ? "Comments" : "Comment"}`}</p>
       <div className="comments__top">
         <div className="comments__avatar"></div>
         <form className="comments__form">

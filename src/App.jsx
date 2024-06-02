@@ -10,8 +10,6 @@ import NextVideos from "./components/NextVideos/NextVideos.jsx";
 
 function App() {
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
-  const [videos, setVideos] = useState(videoList);
-
   const handleVideoClick = (videoId) => {
     const clickedVideo = videoDetails.find((video) => video.id === videoId);
     console.log(videoId);

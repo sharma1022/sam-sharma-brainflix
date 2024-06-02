@@ -59,5 +59,8 @@
     .comment{
         padding-right: 1rem;
         gap: 1.5rem;
+        &__sub-container{
+            margin-bottom: 0;
+        }
     }
 }
