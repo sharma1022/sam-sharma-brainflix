@@ -12,11 +12,13 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
   const [videos, setVideos] = useState(videoList);
 
-  const handleVideoClick = (id) => {
-    const clickedVideo = videos.find((video) => video.id === id);
+  const handleVideoClick = (videoId) => {
+    const clickedVideo = videoDetails.find((video) => video.id === videoId);
+    console.log(videoId);
+    console.log(clickedVideo);
     setSelectedVideo(clickedVideo);
+    
   };
-
   return (
     <div className="App">
       <Header />

@@ -22,9 +22,11 @@
     
     &--upload{
         background-image: url("../../assets/icons/upload.svg");
+        
     }
     &--comment{
         background-image: url("../../assets/icons/add_comment.svg");
+        margin: 0.5rem 0;
     }
     &--tablet{
         display: none;
@@ -39,6 +41,7 @@
         &--comment{
             display: block;
             width: 9.375rem;
+            margin: 0;
             
         }
         &--tablet {

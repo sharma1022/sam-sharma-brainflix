@@ -2,7 +2,8 @@ import "./CommentSection.scss";
 import Button from "../Button/Button";
 import Comment from "../Comment/Comment";
 const CommentSection = ({ selectedVideo }) => {
-const commentCount = selectedVideo.comments.length;;
+  
+const commentCount = selectedVideo.comments.length;
 const comments = selectedVideo.comments;
   return (
     <section className="comments">

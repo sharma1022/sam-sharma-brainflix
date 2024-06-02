@@ -37,6 +37,7 @@
     justify-content: space-between;
     gap: 0.5rem;
     height: 100%;
+    background-color: variables.$form-bg;
 
     &:focus-within {
       border-color: variables.$form-bg;
@@ -46,6 +47,7 @@
       border: none;
       @include style.body-copy(small);
       flex: 1;
+      background-color: variables.$form-bg;
 
       &:focus {
         outline: none;
