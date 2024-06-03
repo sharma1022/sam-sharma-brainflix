@@ -52,15 +52,16 @@
     &__txt{
         @include style.body-copy(large);
     }
+    &__sub-container{
+        margin-bottom: 0.25rem;
+    }
 }
 }
 
 @include mediaQuery.desktop{
     .comment{
-        padding-right: 1rem;
+        padding-right: 1.5rem;
         gap: 1.5rem;
-        &__sub-container{
-            margin-bottom: 0;
-        }
+        
     }
 }

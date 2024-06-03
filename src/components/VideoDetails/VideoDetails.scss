@@ -14,7 +14,7 @@
 
     &__container{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         border-top: 0.0625rem solid variables.$divider-line;
         border-bottom: 0.0625rem solid variables.$divider-line;
         @include style.body-copy(small);
@@ -25,7 +25,7 @@
     &__info{
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
         
     }
     &__channel{
@@ -37,7 +37,8 @@
     &__numbers{
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
+        padding-left: 2rem;
     }
     &__views{
         display: flex;
@@ -68,6 +69,7 @@
             @include style.body-copy(large);
             padding-bottom: 0.5rem;
             margin-bottom: 0.5rem;
+            justify-content: space-between;
         }
         &__info{
             flex-direction: row;
@@ -89,13 +91,13 @@
     .video-details{
         padding: 0;
         &__heading{
-            padding-right: 1rem;
+            padding-right: 1.5rem;
         }
         &__container{
-            padding-right: 1rem;
+            padding-right: 1.5rem;
         }
         &__description{
-            padding-right: 1rem;
+            padding-right: 1.5rem;
         }
     }
 }

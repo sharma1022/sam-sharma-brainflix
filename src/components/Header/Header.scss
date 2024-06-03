@@ -98,7 +98,7 @@
     @include style.section-padding("tablet");
     flex-direction: row;
     justify-content: space-between;
-    
+    margin: 1.5rem 0;
     &__logo {
       &-link {
         margin: 0;

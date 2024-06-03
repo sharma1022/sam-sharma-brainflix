@@ -54,10 +54,18 @@
         border: 0.063rem solid variables.$form-outline;
         resize: none;
         height: 6rem;
+        @include style.body-copy(small);
         &::placeholder{
             @include style.body-copy(small);
             color: variables.$primary-txt;
             font-family: "AvenirNext", "Verdana", "Sans-serif";
+        }
+        &:focus {
+            //border-color: variables.$form-bg;
+            outline: 0.125rem solid variables.$form-outline-active;
+          }
+        &:invalid{
+            outline: 0.125rem solid variables.$form-error;
         }
         
     }
@@ -73,7 +81,7 @@
             align-items: flex-end;
             flex-direction: row;
             width: 100%;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
         }
         &__form{
             flex-direction: row;
@@ -90,8 +98,8 @@
         }
         &__input{
             width: 100%;
-            padding: 0.25rem;
             height: 2.5rem;
+            @include style.body-copy(large);
             &::placeholder{
                 @include style.body-copy(large);
             }
@@ -103,7 +111,7 @@
     .comments{
         padding: 0;
         &__top{
-            padding-right: 1rem;
+            padding-right: 1.5rem;
             gap: 1.5rem;
         }
     }
