@@ -1,4 +1,4 @@
-import "./VideoUploadPage.scs"
+import "./VideoUploadPage.scss"
 import uploadImg from "../../assets/images/Upload-video-preview.jpg";
 
 const VideoUploadPage = () => {
@@ -19,3 +19,5 @@ const VideoUploadPage = () => {
         </main>
     );
 }
+
+export default VideoUploadPage;
