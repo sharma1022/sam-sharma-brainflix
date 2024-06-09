@@ -3,8 +3,8 @@ import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import videoDetails from "../../data/video-details.json";
 import VideoDetails from "../../components/VideoDetails/VideoDetails.jsx";
 import CommentSection from "../../components/CommentSection/CommentSection.jsx";
-import NextVideos from "./components/NextVideos/NextVideos.jsx";
-import "./App.scss";
+import NextVideos from "../../components/NextVideos/NextVideos.jsx";
+import "./MainVideoPage.scss";
 
 const MainVideoPage = () => {
     
