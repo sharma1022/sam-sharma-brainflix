@@ -1,10 +1,8 @@
 import { useState } from "react";
-import Header from "../../components/Header/Header.jsx";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import videoDetails from "../../data/video-details.json";
 import VideoDetails from "../../components/VideoDetails/VideoDetails.jsx";
 import CommentSection from "../../components/CommentSection/CommentSection.jsx";
-import videoList from "./data/videos.json";
 import NextVideos from "./components/NextVideos/NextVideos.jsx";
 import "./App.scss";
 
