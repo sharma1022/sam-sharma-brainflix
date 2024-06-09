@@ -31,6 +31,9 @@
     &--tablet{
         display: none;
     }
+    &--submit{
+        background-image: url("../../assets/icons/publish.svg")
+    }
 }
 
 @include mediaQuery.tablet{
