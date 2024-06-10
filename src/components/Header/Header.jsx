@@ -26,11 +26,11 @@ const Header = () => {
             />
           </div>
           
-          <Button type="button" className="button--upload button--tablet" text="Upload"/>
+          <Button type="button" className="button--upload button--tablet" text="Upload" link="/upload" />
           
           <div className="primary-nav__avatar"></div>
           
-          <Button type="button" className="button--upload" text="Upload"/>
+          <Button type="button" className="button--upload" text="Upload" link="/upload"/>
           
         </div>
       </nav>

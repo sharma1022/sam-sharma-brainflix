@@ -21,7 +21,12 @@
       }
     &--upload{
         background-image: url("../../assets/icons/upload.svg");
-        
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0.6rem;
     }
     &--comment{
         background-image: url("../../assets/icons/add_comment.svg");
