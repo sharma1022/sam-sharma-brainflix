@@ -101,7 +101,11 @@
 }
 
 @include mediaQuery.desktop{
+    main{
+        border-top: 0.063rem solid variables.$divider-line;
+    }
     .upload-video{
+        border: none;
         @include style.section-padding("desktop");
         &__container{
             display: flex;
