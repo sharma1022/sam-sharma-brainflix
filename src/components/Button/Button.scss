@@ -19,7 +19,6 @@
     &:hover {
         background-color: variables.$cta-hover;
       }
-    
     &--upload{
         background-image: url("../../assets/icons/upload.svg");
         
@@ -32,20 +31,23 @@
         display: none;
     }
     &--submit{
-        background-image: url("../../assets/icons/publish.svg")
+        background-image: url("../../assets/icons/publish.svg");
     }
 }
 
 @include mediaQuery.tablet{
     .button {
         @include style.button-text(large);
-        display: none;
+        //display: none;
         
         &--comment{
             display: block;
             width: 9.375rem;
             margin: 0;
             
+        }
+        &--upload {
+            display: none;
         }
         &--tablet {
           display: block;
