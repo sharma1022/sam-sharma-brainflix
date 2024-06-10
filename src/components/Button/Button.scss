@@ -35,8 +35,20 @@
     &--tablet{
         display: none;
     }
-    &--submit{
+    &--publish{
         background-image: url("../../assets/icons/publish.svg");
+    }
+    &--cancel{
+        color: variables.$primary-cta-bg;
+        background-color: variables.$cta-txt;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        margin: 1rem 0;
+        &:hover{
+            background-color: variables.$cta-txt;
+            color: variables.$cta-hover;
+        }
     }
 }
 
@@ -57,6 +69,14 @@
         &--tablet {
           display: block;
           width: 9.375rem;
+        }
+        &--publish{
+            width: 9.375rem;
+            margin: 0;
+        }
+        &--cancel{
+            width: 9.375rem;
+            margin: 0;
         }
       }
 }

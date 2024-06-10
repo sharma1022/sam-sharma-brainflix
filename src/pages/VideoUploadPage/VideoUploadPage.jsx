@@ -1,7 +1,6 @@
 import "./VideoUploadPage.scss"
 import uploadImg from "../../assets/images/Upload-video-preview.jpg";
 import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
 
 const VideoUploadPage = () => {
 
@@ -23,10 +22,8 @@ const VideoUploadPage = () => {
                         </div>
                     </div>
                     <div className="upload-video__form-actions">
-                        <Button type="submit" className="button--submit" text="Publish" />
-                        <Link to="/">
-                        <p>Cancel</p>
-                        </Link>
+                        <Button type="submit" className="button--publish" text="Publish" />
+                        <Button type="button" className="button--cancel" text="Cancel" link="/" /> 
                     </div>
                 </form>
             </section>
