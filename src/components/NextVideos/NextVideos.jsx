@@ -2,8 +2,7 @@ import { useState } from "react";
 import "./NextVideos.scss";
 import VideoCard from "../VideoCard/VideoCard";
 import videoList from "../../data/videos.json";
-const NextVideos = ({ selectedVideo, handleVideoClick }) => {
-  const [videos] = useState(videoList);
+const NextVideos = ({ videos, selectedVideo, handleVideoClick }) => {
 
   return (
     <section className="next-videos">
