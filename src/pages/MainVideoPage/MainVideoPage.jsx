@@ -7,6 +7,8 @@ import NextVideos from "../../components/NextVideos/NextVideos.jsx";
 import "./MainVideoPage.scss";
 
 const MainVideoPage = () => {
+    const apiUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+    const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
     
     const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
 
