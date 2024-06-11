@@ -1,9 +1,9 @@
 import './VideoCard.scss';
 
-const VideoCard = ({id, title, image, channel, handleVideoClick}) => {
+const VideoCard = ({id, title, image, channel}) => {
     
     return (
-        <li className="next-videos__item" onClick={() => handleVideoClick(id)} >
+        <li className="next-videos__item">
         <div className="next-videos__img-container">
             <img className="next-videos__img" src={image} alt={`${title} video.`} />
         </div>

@@ -6,6 +6,7 @@ import CommentSection from "../../components/CommentSection/CommentSection.jsx";
 import NextVideos from "../../components/NextVideos/NextVideos.jsx";
 import "./MainVideoPage.scss";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
 const MainVideoPage = () => {
     const apiUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
@@ -13,27 +14,38 @@ const MainVideoPage = () => {
 
     const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
     const [videos, setVideos] = useState([]);
+    const { videoId } = useParams();
 
     useEffect(() => {
         getVideos();
     }, []);
-    
+
+    useEffect(() => {
+        if(videoId){
+            getSelectedVideo(videoId);
+        } else if(videos.length) {
+            getSelectedVideo(videos[0].id);
+        }
+    }, [videoId, videos]);
+
     const getVideos = async () => {
         try{
             const { data } = await axios.get(`${apiUrl}videos?api_key=${apiKey}`);
             setVideos(data);
-            console.log(data);
         } catch(e){
             console.log(e);
         }
     }
-    const handleVideoClick = (videoId) => {
-      const clickedVideo = videoDetails.find((video) => video.id === videoId);
-      console.log(videoId);
-      console.log(clickedVideo);
-      setSelectedVideo(clickedVideo);
-      
-    };
+
+    const getSelectedVideo = async (videoId) => {
+        try{
+            const { data } = await axios.get(`${apiUrl}videos/${videoId}?api_key=${apiKey}`);
+            setSelectedVideo(data);
+        } catch(e){
+            console.log(e);
+        }
+    }
+
     return (
       <div className="App">
         <main>
@@ -46,7 +58,6 @@ const MainVideoPage = () => {
             <NextVideos
               videos={videos}
               selectedVideo={selectedVideo}
-              handleVideoClick={handleVideoClick}
             />
           </section>
         </main>

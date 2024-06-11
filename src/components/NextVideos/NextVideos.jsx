@@ -1,9 +1,7 @@
-import { useState } from "react";
 import "./NextVideos.scss";
 import VideoCard from "../VideoCard/VideoCard";
-import videoList from "../../data/videos.json";
-const NextVideos = ({ videos, selectedVideo, handleVideoClick }) => {
-
+import { Link } from "react-router-dom";
+const NextVideos = ({ videos, selectedVideo}) => {
   return (
     <section className="next-videos">
       <h3 className="next-videos__header">Next Videos</h3>
@@ -12,14 +10,15 @@ const NextVideos = ({ videos, selectedVideo, handleVideoClick }) => {
           .filter((video) => video.id !== selectedVideo.id)
           .map((video) => {
             return (
-              <VideoCard
-                key={video.id}
-                id={video.id}
-                channel={video.channel}
-                image={video.image}
-                title={video.title}
-                handleVideoClick={handleVideoClick}
-              />
+              <Link className="next-videos__link" to={`/videos/${video.id}`} key={video.id} >
+                <VideoCard
+                  key={video.id}
+                  id={video.id}
+                  channel={video.channel}
+                  image={video.image}
+                  title={video.title}
+                />
+              </Link>
             );
           })}
       </ul>
