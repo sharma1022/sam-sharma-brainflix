@@ -8,10 +8,11 @@ import "./MainVideoPage.scss";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 
-const MainVideoPage = () => {
-    const apiUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
-    const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
+export const apiUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+export const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
 
+const MainVideoPage = () => {
+    
     const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
     const [videos, setVideos] = useState([]);
     const { videoId } = useParams();
@@ -53,7 +54,7 @@ const MainVideoPage = () => {
           <section className="page-content">
             <div className="page-content__selected-vid">
               <VideoDetails selectedVideo={selectedVideo} />
-              <CommentSection selectedVideo={selectedVideo} />
+              <CommentSection selectedVideo={selectedVideo} getSelectedVideo={getSelectedVideo} />
             </div>
             <NextVideos
               videos={videos}

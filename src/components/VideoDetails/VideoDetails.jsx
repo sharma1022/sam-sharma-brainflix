@@ -3,7 +3,7 @@ import likeIcon from '../../assets/icons/likes.svg';
 import "./VideoDetails.scss";
 import timeSince from '../../utils/timeSince';
 const VideoDetails = ({ selectedVideo }) => {
-    console.log(selectedVideo);
+    
     const date = timeSince(new Date(selectedVideo.timestamp));
     return(
         <section className="video-details">
