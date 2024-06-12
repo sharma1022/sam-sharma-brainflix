@@ -41,13 +41,14 @@ const handleFormSubmit = async (e) =>{
 }
 
 const deleteComment = async (videoId, commentId) => {
-  try{
-    await axios.delete(`${apiUrl}videos/${videoId}/comments/${commentId}?api_key=${apiKey}`);
-    getSelectedVideo(selectedVideo.id);
-  } catch(e){
-    console.log(e);
-  }
+    try{
+      await axios.delete(`${apiUrl}videos/${videoId}/comments/${commentId}?api_key=${apiKey}`);
+      getSelectedVideo(selectedVideo.id);
+    } catch(e){
+      console.log(e);
+    }
 }
+
   return (
     <section className="comments">
       <p className="comments__count">{`${commentCount} ${commentCount > 1 ? "Comments" : "Comment"}`}</p>
