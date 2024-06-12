@@ -46,6 +46,10 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
     }
   };
 
+  selectedVideo.comments.sort((a,b) => {
+    return b.timestamp - a.timestamp; 
+  });
+
   return (
     <section className="comments">
       <p className="comments__count">{`${commentCount} ${
