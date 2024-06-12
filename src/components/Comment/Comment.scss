@@ -38,6 +38,23 @@
     }
     &__txt{
         @include style.body-copy(small);
+        width: 98%;
+    }
+    &__details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+    &__delete{
+        width: 1rem;
+        margin-top: 0.5rem;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.2);
+        }
     }
 }
 
