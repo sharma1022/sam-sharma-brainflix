@@ -28,6 +28,7 @@ const handleFormSubmit = async (e) =>{
     name: "Anonymous",
     comment: comment
   }
+
   try{
     await axios.post(`${apiUrl}videos/${selectedVideo.id}/comments?api_key=${apiKey}`, newComment);
     getSelectedVideo(selectedVideo.id);
@@ -38,6 +39,7 @@ const handleFormSubmit = async (e) =>{
       console.log(e);
     }
 }
+
   return (
     <section className="comments">
       <p className="comments__count">{`${commentCount} ${commentCount > 1 ? "Comments" : "Comment"}`}</p>
