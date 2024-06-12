@@ -40,6 +40,14 @@ const handleFormSubmit = async (e) =>{
     }
 }
 
+const deleteComment = async (videoId, commentId) => {
+  try{
+    await axios.delete(`${apiUrl}videos/${videoId}/comments/${commentId}?api_key=${apiKey}`);
+    getSelectedVideo(selectedVideo.id);
+  } catch(e){
+    console.log(e);
+  }
+}
   return (
     <section className="comments">
       <p className="comments__count">{`${commentCount} ${commentCount > 1 ? "Comments" : "Comment"}`}</p>
@@ -71,6 +79,9 @@ const handleFormSubmit = async (e) =>{
                 name={comment.name}
                 timestamp={comment.timestamp}
                 comment={comment.comment}
+                id={comment.id}
+                videoId={selectedVideo.id}
+                deleteComment={deleteComment}
               />
             );
           })}

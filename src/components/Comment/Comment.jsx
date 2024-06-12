@@ -2,7 +2,7 @@ import './Comment.scss';
 import timeSince from '../../utils/timeSince';
 import deleteIcon from '../../assets/icons/delete.svg';
 
-const Comment = ({name, timestamp, comment}) => {
+const Comment = ({id, name, timestamp, comment, deleteComment, videoId}) => {
     const date = timeSince(new Date(timestamp));
     return(
         <li className="comment">
@@ -14,7 +14,7 @@ const Comment = ({name, timestamp, comment}) => {
                 </div>
                 <div className="comment__details">
                     <p className="comment__txt">{comment}</p>
-                    <img className='comment__delete' src={deleteIcon} alt="Delete Icon" />
+                    <img className='comment__delete' src={deleteIcon} alt="Delete Icon" onClick={() => {deleteComment(videoId,id)}}/>
                 </div>
                 
             </div>
