@@ -64,8 +64,12 @@
             //border-color: variables.$form-bg;
             outline: 0.125rem solid variables.$form-outline-active;
           }
-        &:invalid{
+        &--error{
             outline: 0.125rem solid variables.$form-error;
+
+            &::placeholder{
+                color: variables.$form-error;
+            }
         }
         
     }
