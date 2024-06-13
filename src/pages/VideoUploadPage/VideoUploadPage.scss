@@ -49,8 +49,11 @@
             //border-color: variables.$form-bg;
             outline: 0.125rem solid variables.$form-outline-active;
           }
-        &:invalid{
+        &--error{
             outline: 0.125rem solid variables.$form-error;
+            &::placeholder{
+                color: variables.$form-error;
+            }
         }
         &--desc{
             resize: none;
@@ -63,7 +66,108 @@
             flex-direction: column;
         }
     }
+    &__success{
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        align-items: center;
+    }
+    &__txt{
+        @include style.body-copy(large);
+        margin-bottom: 1rem;
+    }
+    &__loading {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: variables.$primary-cta-bg;
+        color: variables.$primary-cta-bg;
+        animation: loading 1s infinite linear;
+      }
+      
+      &__loading::before, &__loading::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+      }
+      
+      &__loading::before {
+        left: -15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: variables.$primary-cta-bg;
+        color: variables.$primary-cta-bg;
+        animation: loadingBefore 1s infinite linear;
+      }
+      
+      &__loading::after {
+        left: 15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: variables.$primary-cta-bg;
+        color: variables.$primary-cta-bg;
+        animation: loadingAfter 1s infinite linear;
+      }
+      
+      @keyframes loadingBefore {
+        0% {
+          transform: scale(1, 1);
+        }
+        25% {
+          transform: scale(1, 1.5);
+        }
+        50% {
+          transform: scale(1, 0.67);
+        }
+        75% {
+          transform: scale(1, 1);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+      
+      @keyframes loading {
+        0% {
+          transform: scale(1, 1);
+        }
+        25% {
+          transform: scale(1, 1);
+        }
+        50% {
+          transform: scale(1, 1.5);
+        }
+        75% {
+          transform: scale(1, 1);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+      
+      @keyframes loadingAfter {
+        0% {
+          transform: scale(1, 1);
+        }
+        25% {
+          transform: scale(1, 1);
+        }
+        50% {
+          transform: scale(1, 0.67);
+        }
+        75% {
+          transform: scale(1, 1.5);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
 }
+
 
 @include mediaQuery.tablet{
     .upload-video{

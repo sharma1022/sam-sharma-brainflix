@@ -9,6 +9,8 @@ const VideoUploadPage = () => {
     const [vidDesc, setVidDesc] = useState("");
     const [isTitleBlank, setIsTitleBlank] = useState(false);
     const [isDescBlank, setIsDescBlank] = useState(false);
+    const [publish, setPublish] = useState(false);
+
     const handleTitleChange = (e) => {
         setVidTitle(e.target.value);
     };
@@ -40,6 +42,7 @@ const VideoUploadPage = () => {
         if(validateForm()) {
             setIsTitleBlank(false);
             setIsDescBlank(false);
+            setPublish(true);
         }
     }
 
@@ -55,15 +58,24 @@ const VideoUploadPage = () => {
                         </div>
                         <div className="upload-video__right">
                             <label htmlFor="" className="upload-video__label">Title your video</label>
-                            <input type="text" className={`upload-video__input ${isTitleBlank ? "upload-video__input-error" : ""}`} value={vidTitle} placeholder={`${isTitleBlank ? "Video title cannot be empty" : "Add a title to your video"}`} name="vidTitle" id="vidTitle" onChange={handleTitleChange}/>
+                            <input type="text" className={`upload-video__input ${isTitleBlank ? "upload-video__input--error" : ""}`} value={vidTitle} placeholder={`${isTitleBlank ? "Video title cannot be empty" : "Add a title to your video"}`} name="vidTitle" id="vidTitle" onChange={handleTitleChange}/>
                             <label htmlFor="" className="upload-video__label">Add a Video Description</label>
-                            <textarea className="upload-video__input upload-video__input--desc" value={vidDesc} name="vidDesc" id="vidDesc" placeholder="Add a description to your video" onChange={handleDescChange}></textarea>
+                            <textarea className={`upload-video__input upload-video__input--desc ${isDescBlank ? "upload-video__input--error" : ""}`} value={vidDesc} name="vidDesc" id="vidDesc" placeholder={`${isDescBlank ? "Video description cannot be empty" : "Add a description to your video"}`} onChange={handleDescChange}></textarea>
                         </div>
                     </div>
+                    {publish ? (<div className="upload-video__success">
+                        <p className="upload-video__txt">
+                        Video uploaded successfully. Redirecting you to the home page.
+                    </p>
+                    <div className="upload-video__loading"></div>
+                    </div>
+                    ):(
                     <div className="upload-video__form-actions">
                         <Button type="submit" className="button--publish" text="Publish" />
                         <Button type="button" className="button--cancel" text="Cancel" link="/" /> 
                     </div>
+                )}
+                   
                 </form>
             </section>
         </main>
