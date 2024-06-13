@@ -43,6 +43,8 @@ const VideoUploadPage = () => {
             setIsTitleBlank(false);
             setIsDescBlank(false);
             setPublish(true);
+            setVidTitle("");
+            setVidDesc("");
         }
     }
 
