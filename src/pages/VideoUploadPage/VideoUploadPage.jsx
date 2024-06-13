@@ -7,7 +7,8 @@ const VideoUploadPage = () => {
 
     const [vidTitle, setVidTitle] = useState("");
     const [vidDesc, setVidDesc] = useState("");
-
+    const [isTitleBlank, setIsTitleBlank] = useState(false);
+    const [isDescBlank, setIsDescBlank] = useState(false);
     const handleTitleChange = (e) => {
         setVidTitle(e.target.value);
     };
@@ -15,10 +16,33 @@ const VideoUploadPage = () => {
     const handleDescChange = (e) => {
         setVidDesc(e.target.value);
     }
+
+    const validateForm = () => {
+
+        setIsTitleBlank(false);
+        setIsDescBlank(false);
+
+        if(vidTitle === "" && vidDesc === ""){
+            setIsTitleBlank(true);
+            setIsDescBlank(true);
+        } else if (vidTitle === ""){
+            setIsTitleBlank(true);
+        } else if (vidDesc === "") {
+            setIsDescBlank(true);
+        } else {
+            return true;
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if(validateForm()) {
+            setIsTitleBlank(false);
+            setIsDescBlank(false);
+        }
     }
+
     return(
         <main>
             <section className="upload-video">
@@ -31,7 +55,7 @@ const VideoUploadPage = () => {
                         </div>
                         <div className="upload-video__right">
                             <label htmlFor="" className="upload-video__label">Title your video</label>
-                            <input type="text" className="upload-video__input" value={vidTitle} placeholder="Add a title to your video" name="vidTitle" id="vidTitle" onChange={handleTitleChange}/>
+                            <input type="text" className={`upload-video__input ${isTitleBlank ? "upload-video__input-error" : ""}`} value={vidTitle} placeholder={`${isTitleBlank ? "Video title cannot be empty" : "Add a title to your video"}`} name="vidTitle" id="vidTitle" onChange={handleTitleChange}/>
                             <label htmlFor="" className="upload-video__label">Add a Video Description</label>
                             <textarea className="upload-video__input upload-video__input--desc" value={vidDesc} name="vidDesc" id="vidDesc" placeholder="Add a description to your video" onChange={handleDescChange}></textarea>
                         </div>
