@@ -14,7 +14,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
 
   useEffect(() => {
     setError(false);
-  },[selectedVideo]);
+  }, [selectedVideo]);
 
   const handleInputChange = (e) => {
     setComment(e.target.value);
@@ -30,6 +30,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
         name: "Anonymous",
         comment: comment,
       };
+
       try {
         await axios.post(
           `${apiUrl}videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
@@ -46,18 +47,20 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
     }
   };
 
-  selectedVideo.comments.sort((a,b) => {
-    return b.timestamp - a.timestamp; 
+  selectedVideo.comments.sort((a, b) => {
+    return b.timestamp - a.timestamp;
   });
 
-const deleteComment = async (videoId, commentId) => {
-    try{
-      await axios.delete(`${apiUrl}videos/${videoId}/comments/${commentId}?api_key=${apiKey}`);
+  const deleteComment = async (videoId, commentId) => {
+    try {
+      await axios.delete(
+        `${apiUrl}videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
+      );
       getSelectedVideo(selectedVideo.id);
-    } catch(e){
+    } catch (e) {
       console.log(e);
     }
-}
+  };
 
   return (
     <section className="comments">
@@ -78,10 +81,14 @@ const deleteComment = async (videoId, commentId) => {
               Join the Conversation
             </label>
             <textarea
-              className={`comments__input ${error ? "comments__input--error" : ""}`}
+              className={`comments__input ${
+                error ? "comments__input--error" : ""
+              }`}
               name="comment"
               id="comment"
-              placeholder={`${error ? "Comment cannot be blank" : "Add a new comment"}`}
+              placeholder={`${
+                error ? "Comment cannot be blank" : "Add a new comment"
+              }`}
               onChange={handleInputChange}
               value={comment}
             ></textarea>

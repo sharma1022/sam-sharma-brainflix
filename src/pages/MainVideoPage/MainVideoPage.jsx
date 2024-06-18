@@ -13,8 +13,8 @@ export const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
 
 const MainVideoPage = () => {
     
-    const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
     const [videos, setVideos] = useState([]);
+    const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
     const { videoId } = useParams();
 
     useEffect(() => {
@@ -22,12 +22,13 @@ const MainVideoPage = () => {
     }, []);
 
     useEffect(() => {
-        if(videoId){
-            getSelectedVideo(videoId);
-        } else if(videos.length) {
-            getSelectedVideo(videos[0].id);
-        }
-    }, [videoId, videos]);
+      if (videoId) {
+          getSelectedVideo(videoId);
+      } else if (videos.length) {
+          getSelectedVideo(videos[0].id);
+      }
+  }, [videoId, videos]);
+
 
     const getVideos = async () => {
         try{

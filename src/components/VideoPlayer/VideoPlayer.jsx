@@ -2,7 +2,7 @@ import "./VideoPlayer.scss";
 
 const VideoPlayer = ({ selectedVideo }) => {
   const image= selectedVideo.image;
-  
+  console.log(selectedVideo);
   return (
     <div className="video">
       <video
