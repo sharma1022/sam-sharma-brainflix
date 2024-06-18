@@ -73,7 +73,7 @@
         align-items: center;
     }
     &__txt{
-        @include style.body-copy(large);
+        @include style.sub-header(small);
         margin-bottom: 1rem;
     }
     &__loading {

@@ -12,7 +12,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
   const [comment, setComment] = useState("");
   const [error, setError] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     setError(false);
   },[selectedVideo]);
 
