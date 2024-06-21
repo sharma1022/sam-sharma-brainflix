@@ -4,18 +4,22 @@
 
 .next-videos{
     @include style.section-padding("mobile");
-
+    padding-bottom: 1rem;
     &__header{
         text-transform: uppercase;
         @include style.label-txt(small);
         color: variables.$secondary-txt;
         padding: 1rem 0 0.25rem 0;
     }
+    &__link{
+        text-decoration: none;
+    }
 }
 
 @include mediaQuery.tablet{
     .next-videos{
         @include style.section-padding("tablet");
+        padding-bottom: 2.25rem;
 
         &__header{
             @include style.label-txt(large);
@@ -26,7 +30,7 @@
 
 @include mediaQuery.desktop{
     .next-videos{
-        padding: 0 0 0 1.5rem;
+        padding: 0 0 1.5rem 1.5rem;
         &__header{
             padding-bottom: 0;
         }

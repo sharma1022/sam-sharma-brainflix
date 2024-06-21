@@ -1,6 +1,6 @@
 import './VideoCard.scss';
 
-const VideoCard = ({id, title, image, channel}) => {
+const VideoCard = ({title, image, channel}) => {
     
     return (
         <li className="next-videos__item">

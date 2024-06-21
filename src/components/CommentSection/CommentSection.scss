@@ -80,6 +80,7 @@
 @include mediaQuery.desktop{
     .comments{
         padding: 0;
+        padding-bottom: 1rem;
         &__top{
             padding-right: 1.5rem;
             gap: 1.5rem;
