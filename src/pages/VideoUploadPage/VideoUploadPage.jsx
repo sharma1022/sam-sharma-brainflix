@@ -91,21 +91,6 @@ const VideoUploadPage = () => {
                 id="vidTitle"
                 handleChange={handleTitleChange}
               />
-              {/* <input
-                type="text"
-                className={`upload-video__input ${
-                  isTitleBlank ? "upload-video__input--error" : ""
-                }`}
-                value={vidTitle}
-                placeholder={`${
-                  isTitleBlank
-                    ? "Video title cannot be empty"
-                    : "Add a title to your video"
-                }`}
-                name="vidTitle"
-                id="vidTitle"
-                onChange={handleTitleChange}
-              /> */}
               <label htmlFor="vidDesc" className="upload-video__label">
                 Add a Video Description
               </label>
@@ -119,20 +104,6 @@ const VideoUploadPage = () => {
                   : "Add a description to your video"
               }
               handleChange={handleDescChange} txtArea/>
-              {/* <textarea
-                className={`upload-video__input upload-video__input--desc ${
-                  isDescBlank ? "upload-video__input--error" : ""
-                }`}
-                value={vidDesc}
-                name="vidDesc"
-                id="vidDesc"
-                placeholder={`${
-                  isDescBlank
-                    ? "Video description cannot be empty"
-                    : "Add a description to your video"
-                }`}
-                onChange={handleDescChange}
-              ></textarea> */}
             </div>
           </div>
           {publish ? (

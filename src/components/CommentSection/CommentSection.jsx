@@ -38,8 +38,6 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
           newComment
         );
         getSelectedVideo(selectedVideo.id);
-        console.log(selectedVideo.id);
-        console.log(comment);
         setComment("");
       } catch (e) {
         console.log(e);
@@ -91,18 +89,6 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
                 error ? "Comment cannot be blank" : "Add a new comment"
               }
               handleChange={handleInputChange} txtArea/>
-            {/* <textarea
-              className={`comments__input ${
-                error ? "comments__input--error" : ""
-              }`}
-              name="comment"
-              id="comment"
-              placeholder={`${
-                error ? "Comment cannot be blank" : "Add a new comment"
-              }`}
-              onChange={handleInputChange}
-              value={comment}
-            ></textarea> */}
           </div>
           <Button type="submit" className="button--comment" text="Comment" />
         </form>
