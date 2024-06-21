@@ -50,6 +50,9 @@
             color: variables.$cta-hover;
         }
     }
+    &--return{
+        margin-top: 1rem;
+    }
 }
 
 @include mediaQuery.tablet{
@@ -77,6 +80,9 @@
         &--cancel{
             width: 9.375rem;
             margin: 0;
+        }
+        &--return{
+            width: 9.375rem;
         }
       }
 }

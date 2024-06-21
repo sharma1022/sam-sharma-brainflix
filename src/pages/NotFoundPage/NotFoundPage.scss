@@ -1,0 +1,59 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins' as style;
+@use '../../styles/partials/media-queries' as mediaQuery;
+
+.not-found{
+    @include style.section-padding(mobile);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    &__img{
+        width: 6rem;
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__heading{
+        @include style.page-header(small);
+        @include style.header-padding(small);
+    }
+    &__text{
+        @include style.body-copy(small);
+        text-align: center;
+    }
+}
+
+@include mediaQuery.tablet{
+    .not-found{
+        margin-top: 6rem;
+    @include style.section-padding(tablet);
+    flex-direction: row;
+    gap: 1rem;
+    &__img{
+        width: 16rem;
+    }
+    &__heading{
+        @include style.page-header(large);
+        @include style.header-padding(large);
+    }
+    &__text{
+        @include style.body-copy(large);
+    }
+}
+}
+@include mediaQuery.desktop{
+    .not-found{
+    
+    @include style.section-padding(desktop);
+    margin-top: 6rem;
+    gap:2rem;
+    &__img{
+        width: 24rem;
+    }
+    }
+}
