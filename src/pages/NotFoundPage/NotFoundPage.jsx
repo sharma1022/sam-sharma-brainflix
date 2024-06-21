@@ -1,8 +1,13 @@
 import errorImg from '../../assets/images/404error.svg';
 import Button from "../../components/Button/Button";
 import "./NotFoundPage.scss";
+import { useEffect } from 'react';
 
 const NotFoundPage = () => {
+
+    useEffect(() => {
+        document.title = "Page Not Found";
+      },[]);
 
     return(
         <>

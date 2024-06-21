@@ -19,6 +19,7 @@ const MainVideoPage = () => {
 
     useEffect(() => {
         getVideos();
+        document.title = "Brainflix - Welcome";
     }, []);
 
     useEffect(() => {

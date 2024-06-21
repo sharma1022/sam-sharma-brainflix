@@ -14,6 +14,10 @@ const VideoUploadPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Brainflix - Upload Video";
+  },[])
+
+  useEffect(() => {
     setTimeout(() => {
       if (publish) {
         navigate("/");
