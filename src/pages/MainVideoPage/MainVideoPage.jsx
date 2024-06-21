@@ -14,7 +14,7 @@ export const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
 const MainVideoPage = () => {
     
     const [videos, setVideos] = useState([]);
-    const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
+    const [selectedVideo, setSelectedVideo] = useState({});
     const { videoId } = useParams();
 
     useEffect(() => {
@@ -26,13 +26,16 @@ const MainVideoPage = () => {
           getSelectedVideo(videoId);
       } else if (videos.length) {
           getSelectedVideo(videos[0].id);
-      }
+      } else {
+        console.log("foo");
+      } 
   }, [videoId, videos]);
 
 
     const getVideos = async () => {
         try{
             const { data } = await axios.get(`${apiUrl}videos?api_key=${apiKey}`);
+            console.log(data);
             setVideos(data);
         } catch(e){
             console.log(e);
@@ -42,7 +45,9 @@ const MainVideoPage = () => {
     const getSelectedVideo = async (videoId) => {
         try{
             const { data } = await axios.get(`${apiUrl}videos/${videoId}?api_key=${apiKey}`);
+            console.log(data);
             setSelectedVideo(data);
+            
         } catch(e){
             console.log(e);
         }

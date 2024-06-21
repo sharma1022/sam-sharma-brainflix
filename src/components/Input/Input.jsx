@@ -1,12 +1,12 @@
 import './Input.scss';
 
-const Input = ({ className, type, placeholder, name, id, value }) => {    
-        if(type === "txtArea"){
+const Input = ({ className, txtArea, placeholder, name, id, value, handleChange}) => {    
+        if(txtArea){
             return (
-                <textarea className={`input ${className}`} placeholder={placeholder} name={name} id={id} value={value} />
+                <textarea className={`input ${className}`} placeholder={placeholder} name={name} id={id} value={value} onChange={(e) => {handleChange(e)}}/>
             );
         } else {
-            return <input className={`input ${className}`} placeholder={placeholder} name={name} id={id} value={value} />
+            return <input className={`input ${className}`} type="text" placeholder={placeholder} name={name} id={id} value={value} onChange={(e) => {handleChange(e)}}/>
         }
 
 }

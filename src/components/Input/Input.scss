@@ -1,3 +1,7 @@
+@use '../../styles/partials/mixins' as style;
+@use '../../styles/partials/variables';
+@use '../../styles/partials/media-queries' as mediaQuery;
+
 .input{
         background-color: variables.$form-bg;
         border-radius: 0.313rem;
@@ -9,24 +13,41 @@
         &--comment {
             resize: none;
             height: 6rem;
+            margin-bottom: 0;
         }
+        &--desc{
+            resize: none;
+            height: 6rem;
+        }
+
         &::placeholder{
             @include style.body-copy(small);
             color: variables.$primary-txt;
             font-family: "AvenirNext", "Verdana", "Sans-serif";
         }
         &:focus {
-            //border-color: variables.$form-bg;
             outline: 0.125rem solid variables.$form-outline-active;
           }
         &--error{
             outline: 0.125rem solid variables.$form-error;
+            
             &::placeholder{
                 color: variables.$form-error;
             }
         }
-        &--desc{
-            resize: none;
-            height: 6rem;
+        
+}
+
+@include mediaQuery.tablet{
+    .input{
+        @include style.body-copy(large);
+
+        &--comment{
+            height: 2.5rem;
         }
+
+        &::placeholder{
+            @include style.body-copy(large);
+        }
+    }
 }

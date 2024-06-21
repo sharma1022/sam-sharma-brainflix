@@ -1,12 +1,13 @@
 import "./CommentSection.scss";
 import Button from "../Button/Button";
 import Comment from "../Comment/Comment";
+import Input from "../Input/Input";
 import axios from "axios";
 import { apiKey, apiUrl } from "../../pages/MainVideoPage/MainVideoPage";
 import { useEffect, useState } from "react";
 
 const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
-  const commentCount = selectedVideo.comments.length;
+  const commentCount = selectedVideo.comments?.length || 0;
   const comments = selectedVideo.comments;
 
   const [comment, setComment] = useState("");
@@ -47,7 +48,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
     }
   };
 
-  selectedVideo.comments.sort((a, b) => {
+  selectedVideo.comments?.sort((a, b) => {
     return b.timestamp - a.timestamp;
   });
 
@@ -80,7 +81,17 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
             <label className="comments__label" htmlFor="comment">
               Join the Conversation
             </label>
-            <textarea
+            <Input className={`input--comment
+                ${error ? "input--error" : ""}
+              `}
+              name="comment"
+              id="comment"
+              value={comment}
+              placeholder={
+                error ? "Comment cannot be blank" : "Add a new comment"
+              }
+              handleChange={handleInputChange} txtArea/>
+            {/* <textarea
               className={`comments__input ${
                 error ? "comments__input--error" : ""
               }`}
@@ -91,14 +102,14 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
               }`}
               onChange={handleInputChange}
               value={comment}
-            ></textarea>
+            ></textarea> */}
           </div>
           <Button type="submit" className="button--comment" text="Comment" />
         </form>
       </div>
       <div className="comments__bottom">
         <ul className="comments__list">
-          {comments.map((comment) => {
+          {comments?.map((comment) => {
             return (
               <Comment
                 key={comment.id}
