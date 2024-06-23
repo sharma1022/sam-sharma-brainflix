@@ -34,7 +34,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
 
       try {
         await axios.post(
-          `${apiUrl}videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
+          `${apiUrl}/videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
           newComment
         );
         getSelectedVideo(selectedVideo.id);
@@ -53,7 +53,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
   const deleteComment = async (videoId, commentId) => {
     try {
       await axios.delete(
-        `${apiUrl}videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
+        `${apiUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
       );
       getSelectedVideo(selectedVideo.id);
     } catch (e) {
@@ -79,7 +79,8 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
             <label className="comments__label" htmlFor="comment">
               Join the Conversation
             </label>
-            <Input className={`input--comment
+            <Input
+              className={`input--comment
                 ${error ? "input--error" : ""}
               `}
               name="comment"
@@ -88,7 +89,9 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
               placeholder={
                 error ? "Comment cannot be blank" : "Add a new comment"
               }
-              handleChange={handleInputChange} txtArea/>
+              handleChange={handleInputChange}
+              txtArea
+            />
           </div>
           <Button type="submit" className="button--comment" text="Comment" />
         </form>
