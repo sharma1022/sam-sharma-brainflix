@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import Comment from "../Comment/Comment";
 import Input from "../Input/Input";
 import axios from "axios";
-import { apiKey, apiUrl } from "../../pages/MainVideoPage/MainVideoPage";
+import { apiUrl } from "../../pages/MainVideoPage/MainVideoPage";
 import { useEffect, useState } from "react";
 
 const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
@@ -34,7 +34,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
 
       try {
         await axios.post(
-          `${apiUrl}/videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
+          `${apiUrl}/videos/${selectedVideo.id}/comments`,
           newComment
         );
         getSelectedVideo(selectedVideo.id);
@@ -52,9 +52,7 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
 
   const deleteComment = async (videoId, commentId) => {
     try {
-      await axios.delete(
-        `${apiUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
-      );
+      await axios.delete(`${apiUrl}/videos/${videoId}/comments/${commentId}`);
       getSelectedVideo(selectedVideo.id);
     } catch (e) {
       console.log(e);

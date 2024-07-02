@@ -7,8 +7,8 @@ import "./MainVideoPage.scss";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-export const apiUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
-export const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
+export const apiUrl = "http://localhost:8001";
+//export const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
 
 const MainVideoPage = () => {
   const [videos, setVideos] = useState([]);
@@ -30,7 +30,7 @@ const MainVideoPage = () => {
 
   const getVideos = async () => {
     try {
-      const { data } = await axios.get(`${apiUrl}/videos?api_key=${apiKey}`);
+      const { data } = await axios.get(`${apiUrl}/videos`);
       setVideos(data);
     } catch (e) {
       console.log(e);
@@ -39,9 +39,7 @@ const MainVideoPage = () => {
 
   const getSelectedVideo = async (videoId) => {
     try {
-      const { data } = await axios.get(
-        `${apiUrl}/videos/${videoId}?api_key=${apiKey}`
-      );
+      const { data } = await axios.get(`${apiUrl}/videos/${videoId}`);
       setSelectedVideo(data);
     } catch (e) {
       console.log(e);
