@@ -46,13 +46,22 @@ const MainVideoPage = () => {
     }
   };
 
+  const likeVideo = async (videoId) => {
+    try {
+      const { data } = await axios.put(`${apiUrl}/videos/${videoId}/likes`);
+      getSelectedVideo(videoId);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div className="App">
       <main>
         <VideoPlayer selectedVideo={selectedVideo} />
         <section className="page-content">
           <div className="page-content__selected-vid">
-            <VideoDetails selectedVideo={selectedVideo} />
+            <VideoDetails selectedVideo={selectedVideo} likeVideo={likeVideo} />
             <CommentSection
               selectedVideo={selectedVideo}
               getSelectedVideo={getSelectedVideo}

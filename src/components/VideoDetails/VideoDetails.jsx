@@ -3,8 +3,8 @@ import likeIcon from "../../assets/icons/likes.svg";
 import "./VideoDetails.scss";
 import timeSince from "../../utils/timeSince";
 
-const VideoDetails = ({ selectedVideo }) => {
-  const date = timeSince(new Date(selectedVideo.timestamp));
+const VideoDetails = ({ selectedVideo, likeVideo }) => {
+  const date = timeSince(new Date(selectedVideo?.timestamp));
   return (
     <section className="video-details">
       <h1 className="video-details__heading">{selectedVideo.title}</h1>
@@ -22,7 +22,12 @@ const VideoDetails = ({ selectedVideo }) => {
             />
             <p className="video-details__views-count">{selectedVideo.views}</p>
           </div>
-          <div className="video-details__likes">
+          <div
+            onClick={() => {
+              likeVideo(selectedVideo.id);
+            }}
+            className="video-details__likes"
+          >
             <img
               className="video-details__likes-icon"
               src={likeIcon}
