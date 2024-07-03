@@ -1,103 +1,117 @@
-@use '../../styles/partials/mixins' as style;
-@use '../../styles/partials/variables';
-@use '../../styles/partials/media-queries' as mediaQuery;
-.video-details{
+@use "../../styles/partials/mixins" as style;
+@use "../../styles/partials/variables";
+@use "../../styles/partials/media-queries" as mediaQuery;
+.video-details {
+  display: flex;
+  flex-direction: column;
+  @include style.section-padding("mobile");
+  color: variables.$primary-txt;
+
+  &__heading {
+    @include style.page-header(small);
+    @include style.header-padding(small);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    border-top: 0.0625rem solid variables.$divider-line;
+    border-bottom: 0.0625rem solid variables.$divider-line;
+    @include style.body-copy(small);
+    color: variables.$secondary-txt;
+    padding: 1rem 0;
+  }
+
+  &__info {
     display: flex;
     flex-direction: column;
-    @include style.section-padding("mobile");
+    gap: 1rem;
+  }
+  &__channel {
     color: variables.$primary-txt;
-
-    &__heading{
-        @include style.page-header(small);
-        @include style.header-padding(small);
-    }
-
-    &__container{
+    @include style.section-header(small);
+    font-weight: 600;
+  }
+  &__numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 2rem;
+  }
+  &__views {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    &-icon {
+      cursor: pointer;
+      &-container {
         display: flex;
-        justify-content: flex-start;
-        border-top: 0.0625rem solid variables.$divider-line;
-        border-bottom: 0.0625rem solid variables.$divider-line;
-        @include style.body-copy(small);
-        color: variables.$secondary-txt;
-        padding: 1rem 0;
+      }
+      &-path {
+        &:hover {
+          fill: #e74c3c;
+        }
+      }
+      &:hover {
+        transform: scale(1.2);
+      }
     }
-
-    &__info{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        
-    }
-    &__channel{
-        color: variables.$primary-txt;
-        @include style.section-header(small);
-        font-weight: 600;
-        
-    }
-    &__numbers{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding-left: 2rem;
-    }
-    &__views{
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-    }
-    &__likes{
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-    }
-    &__description{
-        padding: 1rem 0;
-        @include style.body-copy(small);
-    }
+  }
+  &__description {
+    padding: 1rem 0;
+    @include style.body-copy(small);
+  }
 }
 
-@include mediaQuery.tablet{
-    .video-details{
-        @include style.section-padding("tablet");
-        &__heading{
-            @include style.page-header(large);
-            @include style.header-padding(large);
-            padding-bottom: 0;
-        }
-        &__container{
-            border-top: 0;
-            @include style.body-copy(large);
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem;
-            justify-content: space-between;
-        }
-        &__info{
-            flex-direction: row;
-            gap: 1.5rem;
-        }
-        &__channel{
-            @include style.section-header(large);
-        }
-        &__numbers{
-            flex-direction: row;
-            gap: 1.5rem;
-        }
-        &__description{
-            @include style.body-copy(large);
-        }
+@include mediaQuery.tablet {
+  .video-details {
+    @include style.section-padding("tablet");
+    &__heading {
+      @include style.page-header(large);
+      @include style.header-padding(large);
+      padding-bottom: 0;
     }
+    &__container {
+      border-top: 0;
+      @include style.body-copy(large);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: space-between;
+    }
+    &__info {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+    &__channel {
+      @include style.section-header(large);
+    }
+    &__numbers {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+    &__description {
+      @include style.body-copy(large);
+    }
+  }
 }
-@include mediaQuery.desktop{
-    .video-details{
-        padding: 0;
-        &__heading{
-            padding-right: 1.5rem;
-        }
-        &__container{
-            padding-right: 1.5rem;
-        }
-        &__description{
-            padding-right: 1.5rem;
-        }
+@include mediaQuery.desktop {
+  .video-details {
+    padding: 0;
+    &__heading {
+      padding-right: 1.5rem;
     }
+    &__container {
+      padding-right: 1.5rem;
+    }
+    &__description {
+      padding-right: 1.5rem;
+    }
+  }
 }
