@@ -1,84 +1,120 @@
-@use '../../styles/partials/variables';
-@use '../../styles/partials/mixins' as style;
-@use '../../styles/partials/media-queries' as mediaQuery;
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins" as style;
+@use "../../styles/partials/media-queries" as mediaQuery;
 
-.comment{
+.comment {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0;
+  border-bottom: 0.0625rem solid variables.$divider-line;
+  gap: 1rem;
+  color: variables.$primary-txt;
+
+  &__avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: variables.$divider-line;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  &__sub-container {
     display: flex;
     flex-direction: row;
-    padding: 1rem 0;
-    border-bottom: 0.0625rem solid variables.$divider-line;
-    gap: 1rem;
-    color: variables.$primary-txt;
-    
-    &__avatar{
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
-        background-color: variables.$divider-line;
-    }
-
-    &__container{
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+  &__name {
+    @include style.sub-header(small);
+  }
+  &__date {
+    @include style.body-copy(small);
+    color: variables.$secondary-txt;
+  }
+  &__txt {
+    @include style.body-copy(small);
+    width: 98%;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  &__delete {
+    width: 0.8rem;
+    margin-right: 1rem;
+    &-icon {
+      cursor: pointer;
+      &-container {
         display: flex;
-        flex-wrap: wrap;
-        flex: 1;
-    }
-    &__sub-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        margin-bottom: 0.75rem;
-    }
-    &__name{
-        @include style.sub-header(small);
-    }
-    &__date{
-        @include style.body-copy(small);
-        color: variables.$secondary-txt;
-    }
-    &__txt{
-        @include style.body-copy(small);
-        width: 98%;
-    }
-    &__details{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 1rem;
-        width: 100%;
-        align-items: flex-start;
-    }
-    &__delete{
-        width: 1rem;
-        margin-top: 0.5rem;
-        cursor: pointer;
-        &:hover{
-            transform: scale(1.2);
+      }
+      &-path {
+        &:hover {
+          fill: #323232;
         }
+      }
+      &:hover {
+        transform: scale(1.2);
+      }
     }
+  }
+  &__likes {
+    margin-right: 0.25rem;
+    &-icon {
+      cursor: pointer;
+      &-container {
+        display: flex;
+      }
+      &-path {
+        &:hover {
+          fill: #e74c3c;
+        }
+      }
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    &-count {
+      font-size: 0.813rem;
+      line-height: 1.125rem;
+      font-weight: 400;
+      color: #afafaf;
+    }
+  }
+}
+@include mediaQuery.tablet {
+  .comment {
+    &__name {
+      @include style.sub-header(large);
+    }
+    &__date {
+      @include style.body-copy(large);
+    }
+    &__txt {
+      @include style.body-copy(large);
+    }
+    &__sub-container {
+      margin-bottom: 0.25rem;
+    }
+  }
 }
 
-@include mediaQuery.tablet{
-    .comment{
-    &__name{
-        @include style.sub-header(large);
-    }
-    &__date{
-        @include style.body-copy(large);
-    }
-    &__txt{
-        @include style.body-copy(large);
-    }
-    &__sub-container{
-        margin-bottom: 0.25rem;
-    }
-}
-}
-
-@include mediaQuery.desktop{
-    .comment{
-        padding-right: 1.5rem;
-        gap: 1.5rem;
-        
-    }
+@include mediaQuery.desktop {
+  .comment {
+    padding-right: 1.5rem;
+    gap: 1.5rem;
+  }
 }

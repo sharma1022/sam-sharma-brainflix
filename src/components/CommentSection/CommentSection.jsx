@@ -59,6 +59,17 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
     }
   };
 
+  const likeComment = async (videoId, commentId) => {
+    try {
+      await axios.put(
+        `${apiUrl}/videos/${videoId}/comments/${commentId}/likes`
+      );
+      getSelectedVideo(selectedVideo.id);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <section className="comments">
       <p className="comments__count">{`${commentCount} ${
@@ -103,9 +114,11 @@ const CommentSection = ({ selectedVideo, getSelectedVideo }) => {
                 name={comment.name}
                 timestamp={comment.timestamp}
                 comment={comment.comment}
+                likes={comment.likes}
                 id={comment.id}
                 videoId={selectedVideo.id}
                 deleteComment={deleteComment}
+                likeComment={likeComment}
               />
             );
           })}
