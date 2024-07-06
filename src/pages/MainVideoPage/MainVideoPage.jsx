@@ -48,7 +48,7 @@ const MainVideoPage = () => {
 
   const likeVideo = async (videoId) => {
     try {
-      const { data } = await axios.put(`${apiUrl}/videos/${videoId}/likes`);
+      await axios.put(`${apiUrl}/videos/${videoId}/likes`);
       getSelectedVideo(videoId);
     } catch (e) {
       console.log(e);

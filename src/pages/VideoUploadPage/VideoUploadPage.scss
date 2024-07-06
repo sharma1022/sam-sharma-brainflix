@@ -1,200 +1,206 @@
-@use '../../styles/partials/variables';
-@use '../../styles/partials/mixins' as style;
-@use '../../styles/partials/media-queries' as mediaQuery;
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins" as style;
+@use "../../styles/partials/media-queries" as mediaQuery;
 
-
-.upload-video{
+.upload-video {
+  display: flex;
+  flex-direction: column;
+  @include style.section-padding("mobile");
+  border-top: 0.063rem solid variables.$divider-line;
+  &__heading {
+    @include style.page-header(small);
+    @include style.header-padding(small);
+  }
+  &__thumbnail-label {
+    text-transform: uppercase;
+    @include style.label-txt(small);
+    color: variables.$secondary-txt;
+  }
+  &__label {
+    text-transform: uppercase;
+    @include style.label-txt(small);
+    color: variables.$secondary-txt;
+  }
+  &__img {
+    width: 100%;
+    border-radius: 0.25rem;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    &-upload {
+      margin-bottom: 1rem;
+    }
+  }
+  &__right {
     display: flex;
     flex-direction: column;
-    @include style.section-padding("mobile");
+  }
+  &__form {
+    &-actions {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__success {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    align-items: center;
+  }
+  &__txt {
+    @include style.sub-header(small);
+    margin-bottom: 1rem;
+  }
+  &__loading {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: variables.$primary-cta-bg;
+    color: variables.$primary-cta-bg;
+    animation: loading 1s infinite linear;
+  }
+
+  &__loading::before,
+  &__loading::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+
+  &__loading::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: variables.$primary-cta-bg;
+    color: variables.$primary-cta-bg;
+    animation: loadingBefore 1s infinite linear;
+  }
+
+  &__loading::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: variables.$primary-cta-bg;
+    color: variables.$primary-cta-bg;
+    animation: loadingAfter 1s infinite linear;
+  }
+
+  @keyframes loadingBefore {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1.5);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes loading {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 1.5);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes loadingAfter {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+@include mediaQuery.tablet {
+  .upload-video {
+    @include style.section-padding("tablet");
+    &__right {
+      border-bottom: 0.063rem solid variables.$divider-line;
+    }
+    &__heading {
+      @include style.page-header(large);
+      @include style.header-padding(large);
+      border-bottom: 0.063rem solid variables.$divider-line;
+      padding-bottom: 1rem;
+    }
+    &__container {
+      margin-top: 1rem;
+    }
+    &__left {
+      display: flex;
+      flex-direction: column;
+    }
+    &__thumbnail-label {
+      @include style.label-txt(large);
+    }
+    &__label {
+      @include style.label-txt(large);
+    }
+    &__img {
+      width: 50%;
+    }
+    &__form {
+      &-actions {
+        margin: 1rem 0;
+        gap: 1rem;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+@include mediaQuery.desktop {
+  main {
     border-top: 0.063rem solid variables.$divider-line;
-    &__heading{
-        @include style.page-header(small);
-        @include style.header-padding(small);
+  }
+  .upload-video {
+    border: none;
+    @include style.section-padding("desktop");
+    &__container {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      border-bottom: 0.063rem solid variables.$divider-line;
     }
-    &__thumbnail-label{
-        text-transform: uppercase;
-        @include style.label-txt(small);
-        color: variables.$secondary-txt;
+    &__img {
+      width: 20rem;
     }
-    &__label{
-        text-transform: uppercase;
-        @include style.label-txt(small);
-        color: variables.$secondary-txt;
+    &__right {
+      width: 100%;
+      border: none;
     }
-    &__img{
-        width: 100%;
-        border-radius: 0.25rem;
-        object-fit: cover;
-        margin-bottom: 1rem;
-    }
-    &__right{
-        display: flex;
-        flex-direction: column;
-    }
-    &__form{
-        &-actions{
-            display: flex;
-            flex-direction: column;
-        }
-    }
-    &__success{
-        display: flex;
-        flex-direction: column;
-        padding-top: 1rem;
-        align-items: center;
-    }
-    &__txt{
-        @include style.sub-header(small);
-        margin-bottom: 1rem;
-    }
-    &__loading {
-        position: relative;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: variables.$primary-cta-bg;
-        color: variables.$primary-cta-bg;
-        animation: loading 1s infinite linear;
-      }
-      
-      &__loading::before, &__loading::after {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        top: 0;
-      }
-      
-      &__loading::before {
-        left: -15px;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: variables.$primary-cta-bg;
-        color: variables.$primary-cta-bg;
-        animation: loadingBefore 1s infinite linear;
-      }
-      
-      &__loading::after {
-        left: 15px;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: variables.$primary-cta-bg;
-        color: variables.$primary-cta-bg;
-        animation: loadingAfter 1s infinite linear;
-      }
-      
-      @keyframes loadingBefore {
-        0% {
-          transform: scale(1, 1);
-        }
-        25% {
-          transform: scale(1, 1.5);
-        }
-        50% {
-          transform: scale(1, 0.67);
-        }
-        75% {
-          transform: scale(1, 1);
-        }
-        100% {
-          transform: scale(1, 1);
-        }
-      }
-      
-      @keyframes loading {
-        0% {
-          transform: scale(1, 1);
-        }
-        25% {
-          transform: scale(1, 1);
-        }
-        50% {
-          transform: scale(1, 1.5);
-        }
-        75% {
-          transform: scale(1, 1);
-        }
-        100% {
-          transform: scale(1, 1);
-        }
-      }
-      
-      @keyframes loadingAfter {
-        0% {
-          transform: scale(1, 1);
-        }
-        25% {
-          transform: scale(1, 1);
-        }
-        50% {
-          transform: scale(1, 0.67);
-        }
-        75% {
-          transform: scale(1, 1.5);
-        }
-        100% {
-          transform: scale(1, 1);
-        }
-      }
-}
-
-
-@include mediaQuery.tablet{
-    .upload-video{
-        @include style.section-padding("tablet");
-        &__right{
-            border-bottom: 0.063rem solid variables.$divider-line;
-        }
-        &__heading{
-            @include style.page-header(large);
-            @include style.header-padding(large);
-            border-bottom: 0.063rem solid variables.$divider-line;
-            padding-bottom: 1rem;
-        }
-        &__container{
-            margin-top: 1rem;
-        }
-        &__thumbnail-label{
-            @include style.label-txt(large);
-        }
-        &__label{
-            @include style.label-txt(large);
-        }
-        &__img{
-            width: 50%;
-        }
-        &__form{
-            &-actions{
-                margin: 1rem 0;
-                gap: 1rem;
-                flex-direction: row-reverse;
-                justify-content: flex-start;
-            }
-        }
-    }
-}
-
-@include mediaQuery.desktop{
-    main{
-        border-top: 0.063rem solid variables.$divider-line;
-    }
-    .upload-video{
-        border: none;
-        @include style.section-padding("desktop");
-        &__container{
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
-            border-bottom: 0.063rem solid variables.$divider-line;
-        }
-        &__img{
-            width: 20rem
-        }
-        &__right{
-            width: 100%;
-            border: none;
-        }
-    }
+  }
 }

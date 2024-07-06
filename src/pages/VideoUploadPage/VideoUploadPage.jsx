@@ -4,10 +4,14 @@ import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../MainVideoPage/MainVideoPage";
+import axios from "axios";
 
 const VideoUploadPage = () => {
   const [vidTitle, setVidTitle] = useState("");
   const [vidDesc, setVidDesc] = useState("");
+  const [file, setFile] = useState(null);
+  const [fileDataUrl, setFileDataUrl] = useState(null);
   const [isTitleBlank, setIsTitleBlank] = useState(false);
   const [isDescBlank, setIsDescBlank] = useState(false);
   const [publish, setPublish] = useState(false);
@@ -15,7 +19,7 @@ const VideoUploadPage = () => {
 
   useEffect(() => {
     document.title = "Brainflix - Upload Video";
-  },[])
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,6 +28,28 @@ const VideoUploadPage = () => {
       }
     }, 2500);
   }, [publish, navigate]);
+
+  useEffect(() => {
+    let fileReader,
+      isCancel = false;
+    if (file) {
+      fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        const { result } = e.target;
+        if (result && !isCancel) {
+          setFileDataUrl(result);
+        }
+      };
+      fileReader.readAsDataURL(file);
+    }
+    return () => {
+      isCancel = true;
+      if (fileReader && fileReader.readyState === 1) {
+        fileReader.abort();
+      }
+    };
+  }, [file]);
+
   const handleTitleChange = (e) => {
     setVidTitle(e.target.value);
   };
@@ -32,34 +58,60 @@ const VideoUploadPage = () => {
     setVidDesc(e.target.value);
   };
 
+  const handleImgUpload = (e) => {
+    setFile(e.target.files[0]);
+  };
+
   const validateForm = () => {
     setIsTitleBlank(false);
     setIsDescBlank(false);
-
     if (vidTitle === "" && vidDesc === "") {
       setIsTitleBlank(true);
       setIsDescBlank(true);
+      return false;
     } else if (vidTitle === "") {
       setIsTitleBlank(true);
+      return false;
     } else if (vidDesc === "") {
       setIsDescBlank(true);
+      return false;
     } else {
       return true;
+    }
+  };
+
+  const postVideo = async (vidObj) => {
+    try {
+      await axios.post(`${apiUrl}/videos`, vidObj);
+    } catch (e) {
+      console.log(e);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      setIsTitleBlank(false);
-      setIsDescBlank(false);
-      setPublish(true);
-      setVidTitle("");
-      setVidDesc("");
+    if (!validateForm()) {
+      return console.log("Missing Information");
     }
+
+    const formData = new FormData();
+    formData.append("title", vidTitle);
+    formData.append("description", vidDesc);
+    if (file === null) {
+      formData.append("image", "/images/Upload-video-preview.jpg");
+    } else {
+      formData.append("file", file);
+    }
+
+    postVideo(formData);
+
+    setIsTitleBlank(false);
+    setIsDescBlank(false);
+    setPublish(true);
   };
 
+  console.log(file);
   return (
     <main>
       <section className="upload-video">
@@ -68,14 +120,23 @@ const VideoUploadPage = () => {
           action="submit"
           className="upload-video__form"
           onSubmit={handleSubmit}
+          encType="multipart/form-data"
         >
           <div className="upload-video__container">
             <div className="upload-video__left">
               <p className="upload-video__thumbnail-label">Video Thumbnail</p>
               <img
-                src={uploadImg}
+                src={fileDataUrl ? fileDataUrl : uploadImg}
                 alt="Video Thumbnail"
                 className="upload-video__img"
+              />
+              <input
+                className="upload-video__img-upload"
+                type="file"
+                id="file"
+                name="file"
+                accept=".jpg, .jpeg, .png"
+                onChange={handleImgUpload}
               />
             </div>
             <div className="upload-video__right">
@@ -98,16 +159,19 @@ const VideoUploadPage = () => {
               <label htmlFor="vidDesc" className="upload-video__label">
                 Add a Video Description
               </label>
-              <Input className={`input--desc ${isDescBlank ? "input--error" : ""}`}
-              value={vidDesc}
-              name="vidDesc"
-              id="vidDesc"
-              placeholder={
-                isDescBlank
-                  ? "Video description cannot be empty"
-                  : "Add a description to your video"
-              }
-              handleChange={handleDescChange} txtArea/>
+              <Input
+                className={`input--desc ${isDescBlank ? "input--error" : ""}`}
+                value={vidDesc}
+                name="vidDesc"
+                id="vidDesc"
+                placeholder={
+                  isDescBlank
+                    ? "Video description cannot be empty"
+                    : "Add a description to your video"
+                }
+                handleChange={handleDescChange}
+                txtArea
+              />
             </div>
           </div>
           {publish ? (
