@@ -194,6 +194,7 @@ const VideoPlayer = ({ selectedVideo }) => {
           onClick={togglePlayPause}
         >
           <img
+            className="video__icon video__icon--play"
             src={isPlaying ? `${pauseIcon}` : `${playIcon}`}
             alt="Play Button"
           ></img>
@@ -218,7 +219,11 @@ const VideoPlayer = ({ selectedVideo }) => {
             className="video__btn video__btn--fscreen"
             onClick={toggleFullScreen}
           >
-            <img src={fullScreenIcon} alt="Fullscreen Button"></img>
+            <img
+              className="video__icon  video__icon--fscreen"
+              src={fullScreenIcon}
+              alt="Fullscreen Button"
+            ></img>
           </button>
           <div className="video__volume">
             <button
@@ -226,6 +231,7 @@ const VideoPlayer = ({ selectedVideo }) => {
               onClick={toggleMute}
             >
               <img
+                className="video__icon  video__icon--volume"
                 src={isMuted ? `${volumeOffIcon}` : `${volumeUpIcon}`}
                 alt="Volume Button"
               ></img>
