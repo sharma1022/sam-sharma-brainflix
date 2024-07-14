@@ -3,28 +3,27 @@
 @use "../../styles/partials/variables";
 
 .video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: variables.$video-components;
+
+  &__player {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: variables.$video-components;
-
-    &__player{
-        width: 100%;
-        
-    }
+  }
 }
 
-@include mediaQuery.tablet{
-    .video{
-        &__player{
-            padding: 0 2.25rem;
-        }
+@include mediaQuery.tablet {
+  .video {
+    &__player {
+      padding: 0 2.25rem;
     }
+  }
 }
-@include mediaQuery.desktop{
-    .video{
-        &__player{
-            padding: 0 12.25rem;
-        }
+@include mediaQuery.desktop {
+  .video {
+    &__player {
+      padding: 0 12.25rem;
     }
+  }
 }
