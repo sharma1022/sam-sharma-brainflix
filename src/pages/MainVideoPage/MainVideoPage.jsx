@@ -5,15 +5,16 @@ import CommentSection from "../../components/CommentSection/CommentSection.jsx";
 import NextVideos from "../../components/NextVideos/NextVideos.jsx";
 import "./MainVideoPage.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export const apiUrl = "http://localhost:8001";
-//export const apiKey = "934bc2ea-bf41-430c-a5db-b02987aec2a1";
 
 const MainVideoPage = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
+  const [isVideoFound, setIsVideoFound] = useState(true);
   const { videoId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getVideos();
@@ -28,6 +29,17 @@ const MainVideoPage = () => {
     }
   }, [videoId, videos]);
 
+  useEffect(() => {
+    let timer = "";
+    if (!isVideoFound) {
+      timer = setTimeout(() => {
+        navigate("/");
+        setIsVideoFound(true);
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [isVideoFound, navigate]);
+
   const getVideos = async () => {
     try {
       const { data } = await axios.get(`${apiUrl}/videos`);
@@ -41,8 +53,10 @@ const MainVideoPage = () => {
     try {
       const { data } = await axios.get(`${apiUrl}/videos/${videoId}`);
       setSelectedVideo(data);
+      setIsVideoFound(true);
     } catch (e) {
       console.log(e);
+      setIsVideoFound(false);
     }
   };
 

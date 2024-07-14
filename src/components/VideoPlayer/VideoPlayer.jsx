@@ -36,6 +36,7 @@ const VideoPlayer = ({ selectedVideo }) => {
       setIsPlaying(false);
       setProgress(0);
       stopProgressLoop();
+      video.src = video.src;
     };
     if (video) {
       video.addEventListener("ended", handleVideoEnd);
