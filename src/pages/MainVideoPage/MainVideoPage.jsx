@@ -7,7 +7,7 @@ import "./MainVideoPage.scss";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-export const apiUrl = "http://localhost:8001";
+export const apiUrl = "https://brainflix-api-one.vercel.app";
 
 const MainVideoPage = () => {
   const [videos, setVideos] = useState([]);
